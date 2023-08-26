@@ -14,14 +14,16 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FirstName: Story = {
+export const BettingOdds: Story = {
   args: {
-    label: "Brady",
+    label: "betting-odds",
+    link: "http://localhost:3000/betting-odds",
   },
 };
 
-export const LastName: Story = {
+export const Betpoints: Story = {
   args: {
-    label: "MacDonald",
+    label: "betpoints",
+    link: "http://localhost:3001/points",
   },
 };

@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Shared front-end styes or SBR",
   "main": "index.js",
+  "files": [
+    "build"
+  ],
   "author": "NSSMP",
   "license": "UNLICENSED",
   "scripts": {

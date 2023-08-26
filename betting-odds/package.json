@@ -11,9 +11,10 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@datadog/browser-rum": "^4.17.2",
     "@data-tribe/aa-connector": "^4.4.0",
+    "@datadog/browser-rum": "^4.17.2",
     "@next/bundle-analyzer": "^12.2.5",
+    "@nssmp-bmacdonald/sbr-stellar-components": "^0.0.2",
     "@prisma/client": "4.8.0",
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",

@@ -17,7 +17,7 @@
     "npm": ">=8.6.0"
   },
   "dependencies": {
-    "@nssmp-bmacdonald/sbr-stellar-components": "^0.0.2",
+    "@nssmp-bmacdonald/sbr-stellar-components": "^0.0.3",
     "@tanstack/react-table": "^8.7.9",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
