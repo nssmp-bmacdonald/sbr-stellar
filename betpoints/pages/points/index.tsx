@@ -20,7 +20,7 @@ import { IBetPoints } from '../../types/betpoints';
 import { IRegion } from '../../types/region';
 import { NextPageWithLayout } from '../page';
 
-import { Header } from '@nssmp-bmacdonald/sbr-stellar-components';
+import { Header, Footer } from '@nssmp-bmacdonald/sbr-stellar-components';
 
 interface IBetPointsProps {
   betpoints: IBetPoints;
@@ -30,6 +30,7 @@ interface IBetPointsProps {
 const column1 = (
   <div className="bg-light rounded p-4 h-100 content-section">
     <Header label="Brady" />
+    <Footer label="Feet" />
     <p className="text-center h3">🚀</p>
     <h3 className="text-center h4 mb-3">
       Contribute quality content to the Forum
