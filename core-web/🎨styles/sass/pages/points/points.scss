@@ -1,0 +1,22 @@
+#arrowPath {
+  transition: max-height 3.5s;
+  max-height: 0;
+  top: 20%;
+  left: 5%;
+  overflow: hidden;
+  &[data-state='ACTIVE'],
+  &[data-state='SUCCESS'] {
+    max-height: 660px;
+  }
+  @include media-breakpoint-up(lg) {
+    top: 18%;
+    left: 5%;
+  }
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+.list-group-flush {
+  list-style: none;
+  padding-left: 0;
+}

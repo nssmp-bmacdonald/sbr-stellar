@@ -1,0 +1,139 @@
+import { Meta } from '@storybook/addon-docs';
+import Colors from './assets/baloons.png';
+import Grid from './assets/spreadsheet-file.png';
+import Typography from './assets/typography.png';
+import Spacing from './assets/file.png';
+import Atoms from './assets/atoms.png';
+import Molecules from './assets/molecules.png';
+import Organisms from './assets/organisms.png';
+import Templates from './assets/template.png';
+import '../style/style.scss';
+
+<Meta title="Getting Started/Welcome" />
+
+<div className="position-top">
+
+<div className="bg-dark bg-pattern-bull box-shadow-me">
+  <div className="container">
+    <div id="welcome-banner" className="row justify-content-center py-9">
+      <div className="col-12 text-center">
+        <h1 className="mb-3">
+          A Design System that <br /> has never been more
+          <span className="text-primary">synced</span>.
+        </h1>
+        <p className="mb-5 lead">
+          An innovative design system that creates <b>consistent</b> atomic
+          elements ready for any design.
+        </p>
+        <img
+          src="https://img.sportsbookreview.com/images/storybook/sbr-bull-logo.png?w=100"
+          width="100"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div className="bg-light pt-5 box-shadow-me">
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-8 content-section">
+          <h1 className="h2">Welcome to Stellar Design Kit</h1>
+
+          <p>SBR Stellar Kit includes shared color, text, and effect styles under foundations & components atomatically broken down by atoms, molecules and organisms.</p>
+
+          <h2 className="h4">Why Foundations?</h2>
+          <p>Foundations are the visual and structural elements of our design system. This is created as the building blocks of all our user interface elements. Foundations should be used as the source for all components and layouts created.</p>
+
+          <div className="link-list mt-3 mb-6">
+              <a className="link-item bg-white" href="/?path=/story/foundation-colour--page">
+                <span className="link-image"><img src={Colors} alt="colors" width="48" height="48" /></span>
+                <span className="link-content">
+                  <strong>Colour</strong>
+                  Colors help us create visual patterns that can make interacting with our product easier.
+                </span>
+              </a>
+              <a className="link-item bg-white" href="/?path=/story/foundation-typography--page">
+                <span className="link-image"><img src={Typography} alt="typography" width="48" height="48" /></span>
+                <span className="link-content">
+                  <strong>Typography</strong>
+                  Typography organizes content and creates hierarchies.
+                </span>
+              </a>
+              <a className="link-item bg-white" href="/?path=/story/foundation-spacing--page">
+                <span className="link-image"><img src={Spacing} alt="spacing" width="48" height="48" /></span>
+                <span className="link-content">
+                  <strong>Spacing</strong>
+                  Spacers are visual cues used to define fixed amounts of space between elements.
+                </span>
+              </a>
+              <a className="link-item bg-white" href="/?path=/story/foundation-grid--page">
+                <span className="link-image"><img src={Grid} alt="grid" width="48" height="48" /></span>
+                <span className="link-content">
+                  <strong>Grid</strong>
+                  The grid is the foundation for alingment and positioning for any element.
+                </span>
+              </a>
+          </div>
+
+          <h2 className="h4">Why Components?</h2>
+          <p>The components built out in the Stellar Kit adopt standard atomic design principals. Atomic design consists of <b>atoms</b>, <b>molecules</b>, <b>organisms, & templates</b> concurrently working together to create effective interface design systems.</p>
+          <p>Think of atomic design as a mental model to help us keep our components and interfaces a cohesive and nested. Each of the four stages plays a key role in the hierarchy of our interface design systems. Let's dive into each stage in a bit more detail.</p>
+          <p>When a component being created has multiple foundations + elements, consider referencing below on where to appropriately place them.</p>
+
+          {/* Browse example stories now by navigating to them in the sidebar.
+          View their code in the `stories` directory to learn how they work.
+          We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages. */}
+
+          {/* <div className="subheading">Configure</div> */}
+
+          <div className="link-list mt-3 mb-6">
+              <div className="link-item bg-white">
+                <span className="link-image"><img src={Atoms} alt="atoms" width="48" height="48" /></span>
+                <span className="link-content">
+                  <strong>Atoms</strong>
+                  The atoms of our interfaces serve as the foundational building blocks that comprise all our user interfaces. These atoms include basic elements like inputs, buttons, chips and anything else that can't be broken down any further without ceasing to be functional.
+                </span>
+              </div>
+              <div className="link-item bg-white">
+                <span className="link-image"><img src={Molecules} alt="molecules" width="48" height="48" /></span>
+                <span className="link-content">
+                  <strong>Molecules</strong>
+                  Molecules are relatively the first layer of grouped UI elements functioning together as a unit. For example, an image, body copy, tags, and button can join together to create a card widget.
+                </span>
+              </div>
+              <div className="link-item bg-white">
+                <span className="link-image"><img src={Organisms} alt="organisms" width="48" height="48" /></span>
+                <span className="link-content">
+                  <strong>Organisms</strong>
+                  Organisms are relatively complex UI components composed of groups of molecules and/or atoms and/or other organisms. These organisms form distinct sections of an interface. For example, header and footer.
+                </span>
+              </div>
+              <div className="link-item bg-white">
+                <span className="link-image"><img src={Templates} alt="templates" width="48" height="48" /></span>
+                <span className="link-content">
+                  <strong>Templates</strong>
+                  Templates are page-level objects that place components into a layout and articulate the design's underlying content structure.
+                </span>
+              </div>
+          </div>
+
+          <h2 className="h4">Tokenizing our Design System</h2>
+          <p>Stellar Kit has introduced design tokens. Design tokens are all values needed to build a design system — spacing, color, typography, object styles, etc. Represented as data.</p>
+
+          <h3 className="h5">Token Naming Format</h3>
+          <p>Tokens are named semantically to specify their intended usage. </p>
+          <p>The format of a design token name is: </p>
+
+          <p><span className="bg-white p-1 rounded-1">`$type-category-instance-variant-state`</span></p>
+
+          <div className="tip-wrapper">
+            <span className="tip">Tip</span>Edit the Markdown in{' '}
+            <code>Storybook/stories/Introduction.stories.mdx</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

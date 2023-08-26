@@ -1,0 +1,139 @@
+@import '/styles/abstracts/variables';
+
+$switcherWidth: 37rem;
+
+.marketSelectorContainer {
+  width: 100%;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+
+  > li {
+    margin-bottom: -0.2rem;
+    cursor: pointer;
+  }
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 700;
+  color: $red;
+  font-family: $openSansBold;
+}
+
+.marketGroupsContainer {
+  @extend .marketSelectorContainer;
+  display: flex;
+  margin-top: 2.2rem;
+}
+
+.marketListContainer {
+  @extend .marketSelectorContainer;
+  display: flex;
+  margin: 1.5vh 0;
+
+  @media (min-width: $breakMD) {
+    margin-bottom: 1rem;
+    margin-top: 0;
+    position: relative;
+    z-index:1;
+  }
+}
+
+.marketList {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin-top: 1.5rem;
+
+  &.marketListHome {
+    justify-content: space-between;
+    width: 37rem;
+  }
+  .selected {
+    color: get-color(blues, shade-15);
+  }
+  > li {
+    font-size: 1.2rem;
+    font-family: $openSans;
+    font-weight: 400;
+    color: get-color(blacks, 45);
+    margin-bottom: -0.2rem;
+    cursor: pointer;
+    margin-right: 1.8rem;
+
+    > a {
+      color: get-color(blacks, 45);
+    }
+    &.home {
+      margin-right: 0;
+    }
+  }
+}
+
+.marketGroups {
+  list-style-type: none;
+  padding: 0;
+  border-bottom: $secondary-border;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  @media (min-width: $breakLG) {
+    width: auto;
+  }
+
+  .selected {
+    border-bottom: 0.2rem solid $blue;
+  }
+  > li {
+    font-family: $openSansBold;
+    font-weight: 600;
+    font-size: 1.4rem;
+
+    margin-bottom: -0.2rem;
+    margin-top: 0;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    &.mobile {
+      flex-grow: 2;
+
+      &:first-child {
+        flex-grow: 1;
+        justify-content: flex-start;
+      }
+      &:last-child {
+        flex-grow: 1;
+        justify-content: flex-end;
+      }
+    }
+    > a {
+      padding-bottom: 1.3rem;
+      padding-top: 1rem;
+      color: $stone;
+    }
+    @media (min-width: $breakLG) {
+      font-size: 1.2rem;
+      font-weight: 700;
+      flex: unset;
+      justify-content: unset;
+
+      &:not(:last-child) {
+        padding-right: 1.8rem;
+      }
+    }
+  }
+}
+
+.marketGroupsHome {
+  @media (min-width: $breakLG) {
+    width: 37rem;
+  }
+}

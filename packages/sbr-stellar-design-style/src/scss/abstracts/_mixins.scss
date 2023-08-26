@@ -1,0 +1,56 @@
+﻿@import '../design-system/ds-bs-override';
+@import '../vendors/icons/icons';
+
+@import 'mixins/typography';
+@import 'mixins/transitions';
+@import 'mixins/tooltip';
+
+@mixin box-shadow($result) {
+  @if (length($result) > 0) {
+    -webkit-box-shadow: $result;
+    @if ($enable-animation-mozilla) {
+      -moz-box-shadow: $result;
+    }
+    box-shadow: $result;
+  }
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=($opacity * 100));
+}
+
+// background: -webkit-gradient(linear,left top,left bottom,color-stop(25%,transparent),color-stop(105%,#000));
+// background: -webkit-linear-gradient(top,transparent 25%,#000 105%);
+// background: -o-linear-gradient(top,transparent 25%,#000 105%);
+// background: linear-gradient(180deg,transparent 25%,#000 105%);
+@mixin gradient($direction, $list) {
+  @if ($enable-animation-ms) {
+    background: -webkit-gradient(linear, $direction, $list);
+  }
+  @if ($enable-animation-mozilla) {
+    background: -moz-linear-gradient($direction, $list);
+  }
+  @if ($enable-animation-o) {
+    background: -o-linear-gradient($direction, $list);
+  }
+  background: -webkit-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);
+}
+
+@mixin getMYSpace($space) {
+  margin-bottom: $space;
+  margin-top: $space;
+}
+
+@mixin getIcons($available-icons) {
+  @each $classname, $content in $icons {
+    @each $avIcons in $available-icons {
+      @if $avIcons == $classname {
+        .mat-icon-#{$classname}:before {
+          background-image: url($content);
+        }
+      }
+    }
+  }
+}

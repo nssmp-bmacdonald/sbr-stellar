@@ -1,0 +1,172 @@
+@import '/styles/abstracts/variables';
+
+.inlineBlock {
+  display: inline-block;
+  width: $containerWidth - ($bettingOptionsBoxWidth + $consensusWidth + $openerWidth);
+  height: 100%;
+  position: relative;
+  
+  .columnsContainer {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex: 1 1;
+    > * {
+      flex: 1;
+    }
+  }
+}
+.columnsHeaderContainer {
+  display: flex;
+  flex-direction: row;
+
+  .openerCompact {
+    display: flex;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    border-right: $default-border;
+    @media (max-width: $maxTabletWidth) {
+      min-width: 8.1rem;
+      width: 8.1rem;
+    }
+  }
+  > * {
+    flex: 1;
+  }
+}
+
+.redHover {
+  &:hover {
+    > span {
+      color: $red;
+    }
+  }
+}
+
+.timeContainer {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  height: 4.1rem;
+  max-width: 14rem;
+  min-width: 14rem;
+  
+  @media (min-width: $breakLG) {
+    max-width: $bettingOptionsBoxWidth;
+    min-width: $bettingOptionsBoxWidth;
+    height: 100%;
+  }
+  
+  .timeText {
+    font-family: $openSans;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-top: 0;
+  }
+  .firstTimeText {
+    font-family: $openSansBold;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 0.7rem;
+  }
+  .h2h {
+    color: $red;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  span {
+    text-align: left;
+  }
+  .spacer {
+    font-size: 1.6rem;
+    margin-bottom: .4rem;
+    color: get-color(blacks, 80);
+  }
+  .time {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .icon {
+    font-size: 1.6rem;
+  }
+  & > div {
+    &:last-child {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+.compactBettingOption {
+  .timeContainer {
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+}
+
+.sortingControlsContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+
+  > div {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .timeContainerInside {
+    width: 6rem;
+    align-items: center;
+    justify-content: left;
+    @media (min-width: $breakLG) {
+      justify-content: center;
+      width: 11rem;
+    }
+    > a {
+      color: $red;
+      font-size: 1.2rem;
+      margin-left: 1rem;
+      font-family: $openSans;
+    }
+    > span {
+      @extend .redHover;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex: 1;
+      font-family: $openSansBold;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: underline;
+      color: get-color(blacks, 20);
+    }
+  }
+}
+.rotContainer {
+  width: $rotationCompactContainerWidth;
+  align-items: center;
+  font-family: $openSansBold;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: get-color(blacks, 20);
+}
+.compactViewHeader {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+
+  .future {
+    & > .consensusAndOpener {
+      border-right: none;
+
+      & > span {
+        font-size: 1rem;
+        font-weight: normal;
+      }
+    }
+  }
+}

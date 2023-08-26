@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs';
+import { Story } from '@storybook/blocks';
+import '../../../style/style.scss';
+
+import ColorPalette from './Typography.stories';
+
+<Meta title="Foundation/Typography" />
+
+<div className="position-top">
+  <div className="pt-5 box-shadow-me">
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-8 content-section">
+            <h1>Typography</h1>
+            <p>Typography organizes content and creates hierarchies. It brings consistency to experiences and extends the brand presence across the site.</p>
+            <p>We've layed out all the different properities our typography has to build styles for all areas of the site. For example, different proporties like size, letter spacing & weight could form to build a hero header.</p>
+
+            <h2 className="mt-4">Headings</h2>
+            <Story id="foundation-tokens-typography--heading" />
+
+            <h2 className="mt-4">Paragraph</h2>
+            <Story id="foundation-tokens-typography--paragraph" />
+
+
+            <div className="tip-wrapper">
+              <span className="tip">Tip</span> Edit the Markdown in <code>Storybook/stories/Typography/Typography.stories.mdx</code>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

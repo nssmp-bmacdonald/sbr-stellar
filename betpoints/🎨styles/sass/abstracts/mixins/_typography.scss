@@ -1,0 +1,120 @@
+$headingMap: $sbr-mobile-heading-h1-font-size $sbr-mobile-heading-h1-font-family
+    $sbr-mobile-heading-h1-font-weight $sbr-mobile-heading-h1-line-height
+    $sbr-desktop-heading-h1-font-size $sbr-mobile-heading-h1-letter-spacing,
+  $sbr-mobile-heading-h2-font-size $sbr-mobile-heading-h2-font-family
+    $sbr-mobile-heading-h2-font-weight $sbr-mobile-heading-h2-line-height
+    $sbr-desktop-heading-h2-font-size $sbr-mobile-heading-h2-letter-spacing,
+  $sbr-mobile-heading-h3-font-size $sbr-mobile-heading-h3-font-family
+    $sbr-mobile-heading-h3-font-weight $sbr-mobile-heading-h3-line-height
+    $sbr-desktop-heading-h3-font-size $sbr-mobile-heading-h3-letter-spacing,
+  $sbr-mobile-heading-h4-font-size $sbr-mobile-heading-h4-font-family
+    $sbr-mobile-heading-h4-font-weight $sbr-mobile-heading-h4-line-height
+    $sbr-desktop-heading-h4-font-size $sbr-mobile-heading-h4-letter-spacing,
+  $sbr-mobile-heading-h5-font-size $sbr-mobile-heading-h5-font-family
+    $sbr-mobile-heading-h5-font-weight $sbr-mobile-heading-h5-line-height
+    $sbr-desktop-heading-h5-font-size $sbr-mobile-heading-h5-letter-spacing
+    $sbr-desktop-heading-h5-letter-spacing,
+  $sbr-mobile-heading-h6-font-size $sbr-mobile-heading-h6-font-family
+    $sbr-mobile-heading-h6-font-weight $sbr-mobile-heading-h6-line-height
+    $sbr-desktop-heading-h6-font-size $sbr-mobile-heading-h6-letter-spacing
+    $sbr-desktop-heading-h6-letter-spacing;
+
+$headingMapAlt: $sbr-mobile-heading-h2-font-size
+    $sbr-mobile-heading-h3-font-family $sbr-mobile-heading-h2-font-weight
+    $sbr-mobile-heading-h2-line-height $sbr-desktop-heading-h2-font-size
+    $sbr-mobile-heading-h2-letter-spacing,
+  $sbr-mobile-heading-h3-alt-font-size $sbr-mobile-heading-h3-alt-font-family
+    $sbr-mobile-heading-h3-alt-font-weight
+    $sbr-mobile-heading-h3-alt-line-height $sbr-desktop-heading-h3-alt-font-size
+    $sbr-mobile-heading-h3-alt-letter-spacing,
+  $sbr-mobile-heading-h4-alt-font-size $sbr-mobile-heading-h4-alt-font-family
+    $sbr-mobile-heading-h4-alt-font-weight
+    $sbr-mobile-heading-h4-alt-line-height $sbr-desktop-heading-h4-alt-font-size
+    $sbr-mobile-heading-h4-alt-letter-spacing;
+
+@mixin getH1($mobile) {
+  @if ($mobile == false) {
+    font-size: toRem($sbr-desktop-heading-h1-font-size);
+  } @else {
+    font-size: toRem($sbr-mobile-heading-h1-font-size);
+    font-family: '#{$sbr-mobile-heading-h1-font-family}', serif;
+    font-weight: toWeight($sbr-mobile-heading-h1-font-weight);
+    line-height: $sbr-mobile-heading-h1-line-height;
+  }
+}
+
+@mixin getHeading($mobile, $heading) {
+  $counter: 1;
+  @each $valueHeading in $headingMap {
+    @if ($counter == $heading) {
+      @if ($mobile == false) {
+        font-size: toRem(nth($valueHeading, 5));
+        @if ($counter == 5 or $counter == 6) {
+          letter-spacing: nth($valueHeading, 7);
+        }
+      } @else {
+        font-size: toRem(nth($valueHeading, 1));
+        font-family: '#{nth($valueHeading, 2)}', serif;
+        font-weight: toWeight(nth($valueHeading, 3));
+        line-height: toNumber(nth($valueHeading, 4));
+        letter-spacing: nth($valueHeading, 6);
+      }
+    }
+    $counter: $counter + 1;
+  }
+}
+
+@mixin getHeadingAlt($mobile, $heading) {
+  $counter: 1;
+  @each $valueHeading in $headingMapAlt {
+    @if ($counter == $heading) {
+      @if ($mobile == false) {
+        font-size: toRem(nth($valueHeading, 5));
+        @if ($counter == 5 or $counter == 6) {
+          letter-spacing: nth($valueHeading, 7);
+        }
+      } @else {
+        font-size: toRem(nth($valueHeading, 1));
+        font-family: '#{$sbr-font-families-base}', serif;
+        font-weight: toWeight(nth($valueHeading, 3));
+        line-height: toNumber(nth($valueHeading, 4));
+        letter-spacing: nth($valueHeading, 6);
+      }
+    }
+    $counter: $counter + 1;
+  }
+}
+
+@mixin getParagraph($mobile) {
+  @if ($mobile == false) {
+    font-size: toRem($sbr-desktop-paragraph-p-font-size);
+  } @else {
+    font-size: toRem($sbr-mobile-paragraph-p-font-size);
+    font-weight: toWeight($sbr-mobile-paragraph-p-font-weight);
+    line-height: toNumber($sbr-mobile-paragraph-p-line-height);
+  }
+}
+
+@mixin font-size($size) {
+  font-size: $size * 1px;
+  font-size: calc($size / 16) * map-get($spacers, 3);
+}
+
+@mixin build-icon(
+  $icon,
+  $font-size: map-get($spacers, 3),
+  $line-height: 1,
+  $font-weight: normal
+) {
+  content: $icon;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: 'SBR-icons' !important;
+  font-style: normal;
+  font-weight: $font-weight;
+  font-variant: normal;
+  text-transform: none;
+  speak: never;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

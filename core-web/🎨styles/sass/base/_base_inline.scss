@@ -1,0 +1,300 @@
+@import '../abstracts/mixins';
+
+@font-face {
+  font-family: 'Adjusted Verdana Fallback';
+  src: local(Verdana);
+  size-adjust: 100%;
+  ascent-override: normal;
+  descent-override: normal;
+  line-gap-override: normal;
+}
+@font-face {
+  font-family: 'Adjusted Trebuchet MS Fallback';
+  src: local(Trebuchet MS);
+  size-adjust: 95%;
+  ascent-override: 105%;
+  descent-override: normal;
+  line-gap-override: normal;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: url($url + 'fonts/Barlow/Barlow-Regular.ttf');
+  font-weight: $font-weight-normal;
+  font-display: optional;
+}
+@font-face {
+  font-family: 'Barlow';
+  src: url($url + 'fonts/Barlow/Barlow-SemiBold.ttf');
+  font-weight: $font-weight-bold;
+  font-display: optional;
+}
+@font-face {
+  font-family: 'Factoria';
+  src: url($url + 'fonts/Factoria/Factoria-Bold.woff2');
+  font-style: normal;
+  font-weight: $font-weight-bold;
+  font-stretch: normal;
+  font-display: optional;
+}
+html {
+  font-size: calc((var(--base) / 16) * 100%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-base;
+  @include media-breakpoint-down(lg) {
+    &.body-overlay {
+      width: 100%;
+      position: fixed;
+      overflow-y: scroll;
+    }
+    &.popopen {
+      height: 100%;
+      overflow-y: hidden;
+    }
+  }
+}
+main {
+  min-height: 50vh;
+}
+
+@for $i from 1 through 2 {
+  h#{$i},
+  .h#{$i} {
+    @include getHeading(true, $i);
+    @include media-breakpoint-up(lg) {
+      @include getHeading(false, $i);
+    }
+  }
+}
+.display-2 {
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-4xl;
+  }
+}
+h1,
+.h1 {
+  margin-bottom: map-get($spacers, 4);
+  @include media-breakpoint-up(lg) {
+    margin-bottom: map-get($spacers, 5);
+  }
+}
+.h2-alt {
+  h2,
+  .h2 {
+    @include getHeadingAlt(true, 2);
+    @include media-breakpoint-up(lg) {
+      @include getHeadingAlt(false, 2);
+    }
+  }
+}
+p,
+.p {
+  @include getParagraph(true);
+  @include media-breakpoint-up(lg) {
+    @include getParagraph(false);
+  }
+}
+
+/* Remove all text decoration from anchors */
+a {
+  &.skip-main-content {
+    background: $gray-800;
+    height: 30px;
+    left: 50vw;
+    padding: map-get($spacers, 2);
+    position: absolute;
+    transform: translateY(-110%);
+    transition: transform 0.3s;
+    color: $white;
+    z-index: 100;
+    @include media-breakpoint-down(lg) {
+      left: 0;
+      width: 100%;
+    }
+    &:focus,
+    &:active {
+      transform: translateY(0%);
+    }
+  }
+}
+
+.no-button {
+  background: none;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.breadcrumb-item {
+  a {
+    @include media-breakpoint-down(lg) {
+      padding: toRem(16) toRem(8);
+    }
+  }
+}
+
+.btn {
+  &-primary {
+    &:hover {
+      background-color: $primary-400 !important;
+      border-color: $primary-400 !important;
+    }
+  }
+}
+
+.horizontalScrollbar {
+  overflow-x: auto;
+  /* width */
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb:hover {
+    background: $gray-200;
+  }
+}
+
+.bg {
+  &-dark {
+    background-color: $sbr-bg-dark;
+    color: $white;
+    a:not(.btn) {
+      color: $white;
+
+      &.active {
+        color: $white;
+      }
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+    .bg-white {
+      color: $body-color;
+
+      a:not(.btn) {
+        color: $body-color;
+
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+    }
+  }
+
+  &-darker {
+    background-color: $gray-900;
+    color: $white;
+
+    a:not(.btn),
+    .text-interactive {
+      color: $white;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  &-lighter {
+    background-color: $sbr-bg-light;
+  }
+}
+
+.text {
+  &-sbrBlue {
+    color: $primary-400;
+  }
+  &-linkBlue {
+    color: $sbr-text-interactive;
+  }
+  &-sbrRed {
+    color: $red-500;
+  }
+  &-sbrGreen {
+    color: $success;
+  }
+  &-grey {
+    color: $gray-500;
+  }
+  &-med {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-none;
+  }
+  &-primary {
+    &.text-outlined {
+      color: white;
+      -webkit-text-stroke: 2px $primary;
+      -webkit-text-fill-color: white;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Use case: when your lazily loaded images show their alt text and the empty image icon before loading.
+img:not([src]):not([srcset]) {
+  visibility: hidden;
+}
+
+//For fixed header overlap on anchor links - commented out until needed
+/*h2.anchor-link-offset:target {
+    @include media-breakpoint-down(lg) {
+        scroll-margin-top: 135px;
+    }
+}*/
+
+[class^='mat-icon-'],
+[class*=' mat-icon-'] {
+  &:before {
+    content: '';
+    display: inline-block;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    width: map-get($spacers, 4);
+    height: map-get($spacers, 4);
+  }
+}
+
+.mat-icon {
+  &-size-20 {
+    &:before {
+      width: toRem(20);
+      height: toRem(20);
+    }
+  }
+}
+.bg-noise {
+  position: relative;
+  height: 100%;
+  background-image: url('https://img.sportsbookreview.com/images/backgrounds/bg-noise-repeatable-dark.png?auto=compress&auto=format&w=60');
+  background-repeat: repeat;
+  opacity: 0.35;
+}
+
+.bg-noise-gradient {
+  background: linear-gradient(
+    87.84deg,
+    #14161c -26.17%,
+    rgba(33, 37, 45, 0) 133.26%
+  );
+}

@@ -1,0 +1,38 @@
+{
+  "source": ["src/brand/tokens/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "prefix": "sbr",
+      "buildPath": "src/brand/tokens/variables/css/",
+      "files": [
+        {
+          "format": "css/variables",
+          "destination": "variables.css"
+        }
+      ]
+    },
+    "scss": {
+      "transformGroup": "scss",
+      "prefix": "sbr",
+      "buildPath": "src/brand/tokens/variables/scss/",
+      "files": [
+        {
+          "destination": "_variables.scss",
+          "format": "scss/variables"
+        }
+      ]
+    },
+    "js": {
+      "transformGroup": "js",
+      "prefix": "sbr",
+      "buildPath": "src/brand/tokens/variables/js/",
+      "files": [
+        {
+          "destination": "_variables.js",
+          "format": "javascript/es6"
+        }
+      ]
+    }
+  }
+}

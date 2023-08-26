@@ -1,0 +1,54 @@
+@import "../../design-system/ds-bs-override";
+
+@mixin animation($type, $value) {
+    -webkit-#{$type}: #{$value};
+    @if ($enable-animation-mozilla) {
+       -moz-#{$type}: #{$value};
+    }       
+    @if ($enable-animation-ms) {
+        -ms-#{$type}: #{$value};
+    }
+    @if ($enable-animation-o) {
+         -o-#{$type}: #{$value};
+    }
+            #{$type}: #{$value};
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @if ($enable-animation-mozilla) {
+        @-moz-keyframes #{$name} {
+            @content;
+        }
+    }       
+    @if ($enable-animation-ms) {
+        @-ms-keyframes #{$name} {
+            @content;
+        }    
+    }
+    @if ($enable-animation-o) {
+        @-o-keyframes #{$name} {
+            @content;
+        }
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin setAnimation {
+    display: inline-block;
+    vertical-align: middle;
+    @include animation(transform, perspective(1px) translateZ(0));
+    @include box-shadow(0 0 1px rgba(0, 0, 0, 0));
+    overflow: hidden;
+}
+
+@import 'animations/border';
+@import 'animations/fade';
+@import 'animations/icons';
+@import 'animations/pulse';
+@import 'animations/sweep';
+

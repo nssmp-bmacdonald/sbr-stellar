@@ -1,0 +1,46 @@
+.jumpMenu {
+  position: sticky;
+  position: -webkit-sticky;
+  top: map-get($spacers, 3);
+  margin-top: map-get($spacers, 7);
+  margin-bottom: 2rem;
+  color: $black;
+  padding: map-get($spacers, 4);
+  @include box-shadow($box-shadow-lg);
+  border-radius: $border-radius-sm;
+
+  h4 {
+    padding-bottom: map-get($spacers, 3);
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: map-get($spacers, 2);
+    margin-bottom: 0;
+
+    li {
+      a {
+        color: $text-muted;
+        font-weight: $font-weight-bold;
+        border-left: map-get($border-widths, 2) solid $border-color;
+        padding: map-get($spacers, 2) map-get($spacers, 2) map-get($spacers, 2)
+          map-get($spacers, 3);
+        display: block;
+        &:hover {
+          background-color: $sbr-bg-light;
+          border-left-color: $border-color-tinted;
+          border-top-right-radius: $border-radius-sm;
+          border-bottom-right-radius: $border-radius-sm;
+        }
+        &.jumpMenu--active {
+          border-left-color: $sbr-blue-500;
+          color: $body-color;
+          transition-delay: 0.15s;
+          &:hover {
+            background-color: $sbr-bg-light;
+          }
+        }
+      }
+    }
+  }
+}

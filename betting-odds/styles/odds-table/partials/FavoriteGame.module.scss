@@ -1,0 +1,30 @@
+@import '/styles/abstracts/variables';
+
+.iconFavorite {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .5rem;
+    border: 1px solid $red;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 3px;
+    margin-right: 3px;
+    background-color: transparent;
+    @media ( min-width: $breakLG ) {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+    > i {
+        text-align: center;
+        color: $red;
+    }
+    &.selected {
+        background-color: $red;
+        > i {
+            color: $white;
+        }
+    }
+}
+
+

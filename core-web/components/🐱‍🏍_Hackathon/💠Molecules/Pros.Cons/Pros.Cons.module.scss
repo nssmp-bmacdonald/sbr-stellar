@@ -1,0 +1,32 @@
+.sportsbook {
+  &-pros,
+  &-cons {
+    margin: map-get($spacers, 2) 0 0 0;
+    padding-left: map-get($spacers, 3);
+    list-style: none;
+    li {
+      margin-bottom: map-get($spacers, 1);
+      &:before {
+        content: '\2022';
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+  }
+  &-pros {
+    li {
+      &:before {
+        color: $success;
+      }
+    }
+  }
+  &-cons {
+    li {
+      &:before {
+        color: $danger;
+      }
+    }
+  }
+}

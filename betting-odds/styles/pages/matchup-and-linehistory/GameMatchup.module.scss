@@ -1,0 +1,199 @@
+@import '/styles/abstracts/variables';
+
+.mainColumn {
+  width: 100%;
+  height: 100%;
+  transition: margin .2s ease-out;
+  padding-top: 0;
+  background-color: $white;
+  display: flex;
+  margin-top: 0;
+  padding-bottom: 3rem;
+  @media (max-width: $maxMobileWidth) {
+    flex-direction: column;
+  }
+  .centerColumn {
+    width: 100%;
+    height: 100%;
+    transition: margin .2s ease-out;
+    padding-top: 0;
+    background-color: $white;
+    @media (min-width: $breakMD) {
+      margin-left: 2rem;
+    }
+    @media (min-width: $breakLG) {
+      width: 100%;
+      display: block;
+      visibility: visible;
+    }
+    @media (max-width: $maxMobileWidth) {
+      order: 3;
+    }
+  }
+  .leftColumn {
+    width: 32rem;
+    min-width: 32rem;
+    transition: margin .2s ease-out;
+    height: 100%;
+    @media (max-width: $maxMobileWidth) {
+      width: 100%;
+      min-width: 100%;
+      order: 1;
+    }
+  }
+  .rightColumn {
+    width: 31rem;
+    min-width: 31rem;
+    margin: 0 0 0 1.5rem;
+    height: 100%;
+    @media (min-width: $breakLG) {
+      display: block;
+      visibility: visible;
+    }
+    @media (max-width: $maxMobileWidth) {
+      width: 100%;
+      min-width: 100%;
+      margin: 0;
+      order: 2;
+    }
+  }
+  hr {
+    display: flex;
+    height: 56rem;
+    margin-left: 2rem;
+    background-color: get-color(gray-variant, tint-45);
+    @media (max-width: $maxMobileWidth) {
+      display: none;
+    }
+  }
+  &.LineHistory {
+    .rightColumn {
+      width: 10rem;
+      min-width: 10rem;
+    }
+    .dropDownContainer {
+      padding: 0 1rem;
+
+      @media (min-width: $breakMD) {
+        padding: 0;
+      }
+    }
+    @media (min-width: $breakMD) {
+      .list {
+        overflow-y: scroll;
+        height: 52rem;
+
+        &::-webkit-scrollbar {
+          width: .4rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: get-color(blacks, 80);
+          border-radius: 1rem;
+        }
+        &::-webkit-scrollbar-track {
+          background: $white;
+        }
+      }
+    }
+  }
+}
+.TeamInfo {
+  display: flex;
+  padding-top: 1rem;
+  justify-content: center;
+  .TeamName {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    padding: 0 0 1.5rem;
+    font-weight: 5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    color: $sbr-primary;
+    text-shadow: rgb(215 222 226 / 70%) 0 0.1rem 0;
+    @media (min-width: $breakLG) {
+      font-size: 1.4rem;
+    }
+    p {
+      margin: 0 0 10px 0;
+    }
+  }
+  .TagCircle {
+    display: flex;
+    justify-content: center;
+    width: 2.6rem;
+    font-size: 1.8rem;
+    border-radius: 2rem;
+    height: 2.6rem;
+    text-align: center;
+    top: 2rem;
+    background-color: get-color(sbr-blue, link);
+    color: $white;
+    line-height: 2.3rem;
+    margin: 0 1rem;
+  }
+  .Odds {
+    color: get-color(blacks, 45);
+    font-size: 1.8rem;
+    min-height: 1.8rem;
+    margin-bottom: 1rem;
+  }
+}
+.TeamStatistics {
+  .Row {
+    font-size: 1.6em;
+    font-weight: 200;
+    .RowLabel {
+      font-size: 1.2rem;
+    }
+  }
+}
+.GameRow {
+  border-top: solid 1px $silver;
+  padding-bottom: 1rem;
+  text-align: center;
+  padding-top: 1rem;
+  color: get-color(blacks, 45);
+  font-size: 1.4rem;
+  &:nth-child(even) {
+    border-top: 0 none;
+    background-color: get-color(silvers, tint-50);
+    border-bottom: solid 1px get-color(gray-variant, light-85);
+  }
+  &.stackCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.OddsWrapper {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid get-color(blacks, 80);
+  padding: 2.8rem 1.5rem 1.8rem;
+  .LeftSide,
+  .RightSide {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+}
+.OddText {
+  color: $sbr-primary;
+  font-size: 3.2rem;
+  line-height: 0.7;
+  text-align: right;
+  small {
+    font-size: 1.6rem;
+  }
+}
+.pageControl {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 1.5vh 0;
+}

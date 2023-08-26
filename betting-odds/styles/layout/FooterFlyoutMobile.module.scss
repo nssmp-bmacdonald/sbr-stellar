@@ -1,0 +1,63 @@
+@import '/styles/abstracts/variables';
+@import '/styles/abstracts/mixins';
+
+.mobileUserMenu {
+    bottom: 0;
+    width: 100%;
+    z-index: 1032;
+    display: flex;
+    height: 5.4rem;
+    position: fixed;
+    transition: bottom 0.6s;
+    background-color: get-color(sbr-blue, bckg-darker);
+    -webkit-transition: bottom 0.6s;
+
+    &.hidden {
+      bottom: -5.4rem;
+    }
+
+    .button {
+      flex: 1;
+      color: white;
+      display: flex;
+      font-size: 1.8rem;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+
+      &.isSelected {
+        background: linear-gradient(180deg, $white 50%, $silver 100%);
+        color: get-color(blues, tint-75);
+      }
+      .favoritesSelected {
+        color: $yellow;
+      }
+      .icons {
+        display: flex;
+        flex-direction: column;
+
+        > i {
+          speak: none;
+          @include build-icon("", inherit, 1);
+        }
+        .badge {
+          top: 0.4rem;
+          display: flex;
+          width: 1.8rem;
+          height: 1.8rem;
+          font-size: 1.2rem;
+          position: absolute;
+          border-radius: 50%;
+          margin-left: 1.8rem;
+          align-items: center;
+          justify-content: center;
+          background-color: $red;
+          color: $white;
+        }
+      }
+      > span {
+        font-size: 1rem;
+        margin-top: 0.6rem;
+      }
+    }
+  }

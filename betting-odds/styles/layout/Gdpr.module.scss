@@ -1,0 +1,47 @@
+@import '/styles/abstracts/variables';
+
+.gdpr {
+  position: fixed;
+  z-index: 1033;
+  font-family: $openSans;
+  width: 100%;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+
+  @media (min-width: $breakLG) {
+    display: flex;
+    height: 6.9rem;
+    padding: 2rem 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > div {
+    line-height: 1.5;
+    color: $white;
+    padding: 2rem 1rem 1.6rem 1rem;
+    @media (min-width: $breakLG) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      padding: 0 6rem;
+    }
+    p {
+      font-size: 1.1rem;
+      @media (min-width: $breakLG) {
+        font-size: 1.2rem;
+        width: 70%;
+      }
+      > a {
+          margin-left: 0.5rem;
+          margin-right: 0.5rem;
+          color: $white;
+          text-decoration: underline;
+      }
+    }
+    
+
+  }
+}

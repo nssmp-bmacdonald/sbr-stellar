@@ -1,0 +1,38 @@
+{
+  "source": ["Storybook/brand/tokens/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "prefix": "sbr",
+      "buildPath": "Storybook/brand/tokens/variables/css/",
+      "files": [
+        {
+          "format": "css/variables",
+          "destination": "variables.css"
+        }
+      ]
+    },
+    "scss": {
+      "transformGroup": "scss",
+      "prefix": "sbr",
+      "buildPath": "Storybook/brand/tokens/variables/scss/",
+      "files": [
+        {
+          "destination": "_variables.scss",
+          "format": "scss/variables"
+        }
+      ]
+    },
+    "js": {
+      "transformGroup": "js",
+      "prefix": "sbr",
+      "buildPath": "Storybook/brand/tokens/variables/js/",
+      "files": [
+        {
+          "destination": "_variables.js",
+          "format": "javascript/es6"
+        }
+      ]
+    }
+  }
+}

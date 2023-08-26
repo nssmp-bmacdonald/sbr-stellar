@@ -1,0 +1,32 @@
+$avilable-icons: 'swap-horiz';
+@include getIcons($avilable-icons);
+
+#transaction {
+  background-color: white;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow-md;
+  padding: map-get($spacers, 3);
+
+  .bg-light.p-3 {
+    flex: 1 1 0;
+    width: 160px;
+    border-radius: $border-radius-sm;
+  }  
+
+  .form-control {
+    margin-bottom: map-get($spacers, 2);
+
+    &#amount {
+      font-weight: $font-weight-bolder;
+    }
+  }
+
+  .fs-3 {
+    font-weight: $font-weight-bolder;
+    font-family: $sbr-font-families-styled;
+  }
+
+  label {
+    font-weight: $font-weight-bold;
+  }
+}

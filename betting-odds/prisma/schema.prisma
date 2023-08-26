@@ -1,0 +1,400 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model boxscoreview {
+  gameid        BigInt
+  viewtype      String
+  viewdata      Json?
+  lasteventid   BigInt
+  lasteventdate String
+
+  @@id([gameid, viewtype])
+}
+
+model calendarview {
+  seasonid      BigInt
+  phase         String
+  viewtype      String
+  startdate     Int
+  enddate       Int
+  viewdata      Json?
+  lasteventid   BigInt
+  lasteventdate String
+
+  @@id([seasonid, phase, viewtype])
+}
+
+model gamelookup {
+  gameid       BigInt  @id
+  hometeamid   BigInt
+  awayteamid   BigInt
+  hometeamname String
+  awayteamname String
+  startdate    String
+  leagueid     BigInt
+  leaguename   String
+  seasonid     BigInt
+  seasonname   String
+  status       String
+  gametype     String
+  lasteventid  BigInt
+  seasonphase  String?
+}
+
+model gameview {
+  gameid        BigInt
+  viewtype      String
+  lasteventid   BigInt
+  lasteventdate String
+  viewdata      Json?
+
+  @@id([gameid, viewtype])
+}
+
+model leaguelookup {
+  leagueid    BigInt @id
+  leaguename  String
+  lasteventid BigInt
+  leaguerank  Int?   @default(999)
+}
+
+model linesview {
+  gameid        BigInt
+  eventid       BigInt
+  oddseventid   BigInt
+  sportsbook    String
+  oddstype      String
+  oddsscope     String
+  viewtype      String
+  viewdata      Json?
+  lasteventdate String?
+  lasteventid   BigInt?
+  tournamentid  BigInt? @default(0)
+
+  @@id([gameid, eventid, oddseventid, sportsbook, oddstype, oddsscope, viewtype])
+}
+
+model livescoreview {
+  gameid        BigInt
+  viewtype      String
+  viewdata      Json?
+  lasteventdate String
+  lasteventid   BigInt
+
+  @@id([gameid, viewtype])
+}
+
+model matchupview {
+  gameid        BigInt
+  viewtype      String
+  viewdata      Json?
+  lasteventid   BigInt
+  lasteventdate String
+
+  @@id([gameid, viewtype])
+}
+
+model mmaeventlookup {
+  eventid            BigInt   @id
+  eventname          String
+  seasonid           BigInt
+  type               String
+  homeplayerid       BigInt
+  awayplayerid       BigInt
+  venueid            BigInt
+  status             String?  @default("")
+  machupstatus       String?  @default("")
+  method             String?  @default("")
+  starttime          String?
+  starttimeconfirmed Boolean?
+  lasteventid        BigInt
+  winnerid           BigInt?
+  fightorder         Int?
+  matchupstatus      String?
+}
+
+model mmaeventview {
+  eventid       BigInt
+  viewtype      String
+  lasteventid   BigInt
+  lasteventdate String
+  viewdata      Json?
+
+  @@id([eventid, viewtype])
+}
+
+model oddseventlookup {
+  oddseventid   BigInt   @id
+  oddseventname String
+  leagueid      BigInt
+  leaguename    String
+  startdate     String
+  enddate       String
+  lasteventid   BigInt
+  sortorder     Int?
+  active        Boolean? @default(false)
+  eventtype     String?  @default("Undefined")
+  displayname   String?
+}
+
+model oddsview {
+  gameid        BigInt
+  sportsbook    String
+  oddstype      String
+  oddsscope     String
+  viewtype      String
+  viewdata      Json?
+  lasteventdate String?
+  lasteventid   BigInt?
+
+  @@id([gameid, sportsbook, oddstype, oddsscope, viewtype])
+  @@index([lasteventdate], map: "ix_oddsview_lasteventdate")
+}
+
+model officialseasonlookup {
+  officialid         BigInt
+  seasonid           BigInt
+  officialpositionid BigInt
+  firstname          String
+  lastname           String
+  number             Int
+  lasteventid        BigInt
+  officialposition   String?
+
+  @@id([officialid, seasonid])
+}
+
+model officialseasonview {
+  officialid    BigInt
+  seasonid      BigInt
+  viewtype      String
+  viewdata      Json?
+  lasteventid   BigInt
+  lasteventdate String
+
+  @@id([officialid, seasonid, viewtype])
+}
+
+model playerfutureoddsview {
+  viewtype      String
+  viewdata      Json?
+  sportsbook    String
+  playerid      BigInt
+  oddseventid   BigInt
+  lasteventdate String
+  lasteventid   BigInt
+
+  @@id([viewtype, sportsbook, playerid, oddseventid])
+}
+
+model playerseasonlookup {
+  playerid      BigInt
+  seasonid      BigInt
+  teamid        BigInt
+  active        Boolean? @default(false)
+  leagueid      BigInt?
+  position      String?
+  number        BigInt?  @default(0)
+  salary        Float?   @db.Real
+  firstname     String?  @default("-1")
+  lastname      String?  @default("-1")
+  shortposition String?  @default("0")
+  experience    String?  @default("0")
+  lasteventid   BigInt?  @default(0)
+
+  @@id([playerid, seasonid, teamid])
+}
+
+model playerseasonview {
+  playerid      BigInt
+  seasonid      BigInt
+  viewtype      String
+  viewdata      Json?
+  lasteventid   BigInt
+  lasteventdate String
+  teamid        BigInt @default(-1)
+
+  @@id([playerid, seasonid, viewtype, teamid])
+}
+
+model playertournamentoddsview {
+  viewtype        String
+  viewdata        String
+  sportsbook      String
+  playerid        BigInt
+  tournamentid    BigInt
+  lasteventdate   String
+  lasteventid     BigInt
+  tournamentscope String
+
+  @@id([viewtype, sportsbook, playerid, tournamentid, tournamentscope])
+}
+
+model playerview {
+  playerid      BigInt
+  viewtype      String
+  viewdata      Json?
+  lasteventid   BigInt
+  lasteventdate String
+
+  @@id([playerid, viewtype])
+}
+
+model propeventlookup {
+  leaguename     String
+  propevent      String
+  propeventtitle String
+  lasteventid    BigInt
+
+  @@id([leaguename, propevent])
+}
+
+model propsview {
+  gameid        BigInt
+  teamid        BigInt
+  playerid      BigInt
+  leaguename    String
+  sportsbook    String
+  propevent     String
+  oddstype      String
+  oddsscope     String
+  viewtype      String
+  viewdata      Json?
+  lasteventdate String?
+  lasteventid   BigInt?
+  leaguenam     String?
+
+  @@id([gameid, teamid, playerid, leaguename, sportsbook, propevent, oddstype, oddsscope, viewtype])
+}
+
+model rankview {
+  leagueid      BigInt
+  weightclass   String
+  year          Int
+  week          Int
+  viewtype      String
+  viewdata      Json?
+  lasteventdate String?
+  lasteventid   BigInt?
+
+  @@id([leagueid, weightclass, year, week, viewtype])
+}
+
+model seasonlookup {
+  seasonid    BigInt  @id
+  seasonname  String
+  leagueid    BigInt
+  startdate   Int
+  enddate     Int
+  leaguename  String
+  lasteventid BigInt? @default(0)
+}
+
+model seasonview {
+  seasonid      BigInt
+  viewtype      String
+  viewdata      Json?
+  lasteventid   BigInt
+  lasteventdate String
+
+  @@id([seasonid, viewtype])
+}
+
+model teamfutureoddsview {
+  oddseventid   BigInt
+  teamid        BigInt
+  sportsbook    String
+  oddstype      String
+  oddsscope     String
+  viewtype      String
+  viewdata      Json?
+  lasteventdate String?
+  lasteventid   BigInt?
+
+  @@id([oddseventid, teamid, sportsbook, oddstype, oddsscope, viewtype])
+}
+
+model teamlookup {
+  teamid      BigInt  @id
+  leagueid    BigInt
+  displayname String? @default("")
+  shortname   String? @default("")
+  name        String? @default("0")
+  nickname    String? @default("0")
+  lasteventid BigInt? @default(0)
+}
+
+model teamseasonlookup {
+  teamid         BigInt
+  seasonid       BigInt
+  leagueid       BigInt
+  displayname    String? @default("")
+  shortname      String? @default("")
+  name           String
+  nickname       String
+  conferenceid   BigInt? @default(-1)
+  conferencename String? @default("0")
+  divisionid     BigInt? @default(-1)
+  divisionname   String? @default("0")
+  city           String? @default("0")
+  state          String? @default("0")
+  country        String? @default("0")
+  tier           BigInt? @default(0)
+  type           String? @default("0")
+  lasteventid    BigInt? @default(0)
+  linkablename   String?
+  seasonname     String?
+  leaguename     String?
+  rank           Int?    @default(-1)
+
+  @@id([teamid, seasonid])
+}
+
+model teamseasonview {
+  teamid        BigInt @default(-1)
+  seasonid      BigInt
+  viewdata      Json?
+  lasteventid   BigInt
+  lasteventdate String
+  viewtype      String
+
+  @@id([teamid, seasonid, viewtype])
+}
+
+model teamview {
+  teamid        BigInt
+  viewtype      String
+  viewdata      Json?
+  lasteventdate String
+  lasteventid   BigInt
+
+  @@id([teamid, viewtype])
+}
+
+model tournamentlookup {
+  tournamentid   BigInt  @id
+  tournamentname String
+  startdate      String?
+  enddate        String?
+  seasonid       BigInt
+  type           String
+  status         String? @default("")
+  venueid        BigInt
+  lasteventid    BigInt
+}
+
+model tournamentview {
+  tournamentid  BigInt
+  viewtype      String
+  lasteventid   BigInt
+  lasteventdate String
+  viewdata      Json?
+
+  @@id([tournamentid, viewtype])
+}

@@ -1,0 +1,54 @@
+@mixin sweep {
+	position: relative;
+	@include animation(transition-property, color);
+	@include animation(transition-duration, $sbr-sweep-animation-timing);
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+        background: $primary-500;
+
+		@include animation(transform, scaleX(0));
+		@include animation(transition-property, transform);
+		@include animation(transition-duration, $sbr-sweep-animation-timing);
+		@include animation(transition-timing-function, ease-out);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+        color: $white;
+		&:before {
+			@include animation(transform, scaleX(1));
+		}
+	}
+
+}
+
+@mixin sweepRight($activeBg: $primary-500, $color: $white) {
+	&:before {
+		background: $activeBg;
+		@include animation(transform-origin, 0 50%);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color;
+	}
+}
+
+@mixin sweepLeft($activeBg: $primary-500, $color: $white) {
+	&:before {
+		content: "";
+		background: $activeBg;
+		@include animation(transform-origin, 100% 50%);
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color;
+	}
+}

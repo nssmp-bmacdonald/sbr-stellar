@@ -1,0 +1,13 @@
+@import '../../../🎨styles/sass/vendors/ds-bs-override';
+
+.accordion-item {
+  border-bottom: $border-width solid $border-color;
+}
+.accordion-collapse {
+  &.collapse {
+    background-color: $light;
+  }
+}
+.accordion-body {
+  padding-top: 0;
+}

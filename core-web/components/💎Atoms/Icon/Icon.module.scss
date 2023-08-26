@@ -1,0 +1,12 @@
+@import '../../../🎨styles/sass/abstracts/mixins';
+@import '../../../🎨styles/sass/abstracts/functions';
+
+$avilable-icons: 'arrow-back', 'arrow-forward', 'military-tech', 'more-vert',
+  'publish', 'post-add', 'tune', 'local-activity', 'receipt-long', 'loyalty',
+  'settings-backup', 'rss-feed', 'emoji-events', 'add-moderator', 'thumb-up-alt',
+  'thumb-down-alt', 'arrow-right-alt', 'confirmation-number', 'videogame-asset',
+  'local-play', 'casino', 'payments', 'favorite-border', 'monetization-on',
+  'phonelink', 'contact-phone', 'category', 'chat-unread', 'boosts', 'racing',
+  'poker', 'live-tv', 'expand-more', 'expand-less', 'favorite',
+  'favorite-border';
+@include getIcons($avilable-icons);

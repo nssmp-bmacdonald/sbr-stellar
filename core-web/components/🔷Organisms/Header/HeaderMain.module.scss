@@ -1,0 +1,364 @@
+@import '../../../🎨styles/sass/abstracts/mixins';
+@import '../../../🎨styles/sass/abstracts/functions';
+@import '../../../🎨styles/sass/vendors/icons/icons';
+
+$avilable-icons: 'baseball', 'basketball', 'fighting', 'football', 'hockey',
+  'more-sports', 'soccer', 'chevron-left', 'chevron-right';
+@include getIcons($avilable-icons);
+
+$avilable-icons: 'search';
+@include getIcons($avilable-icons);
+
+#sbr-UL-pageLinks {
+  @include media-breakpoint-down(lg) {
+    width: 100vw !important;
+    height: calc(100vh - 56px) !important;
+    position: absolute;
+    left: 0;
+    top: 56px;
+    display: none;
+    background-color: $white;
+    align-items: flex-start;
+
+    .navbar-nav {
+      width: 100%;
+      padding-top: map-get($spacers, 3);
+      padding-bottom: map-get($spacers, 5);
+    }
+  }
+}
+
+#header {
+  width: 100%;
+  min-width: 100%;
+  height: 56px;
+  font-size: $font-size-xs;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 201;
+
+  @include media-breakpoint-up(lg) {
+    min-height: toRem(64);
+    position: relative;
+  }
+
+  &.opened {
+    #sbr-UL-pageLinks {
+      display: flex !important;
+      z-index: 100;
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+  & + main {
+    padding-top: 56px;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+    }
+  }
+}
+
+.noMarkerList {
+  list-style-type: none;
+}
+
+.topNav-itemList {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  @include media-breakpoint-up(lg) {
+    height: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 1.5rem;
+  }
+}
+.topNav-item {
+  color: $gray-800 !important;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @include media-breakpoint-up(md) {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  @include media-breakpoint-up(lg) {
+    color: $gray-300 !important;
+    text-transform: unset;
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 3px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: none;
+    }
+
+    &:hover,
+    &.active {
+      color: $white !important;
+      &::before {
+        background-color: $sbr-border-interactive;
+      }
+    }
+  }
+}
+
+#sbr-UL-topNavLinks {
+  display: none;
+}
+
+.dropdown-wrapper {
+  display: none;
+}
+
+// NEW HEADER STYLES - ABOVE THE FOLD
+.topNav-linkOnly {
+  color: $white;
+
+  @include media-breakpoint-up(lg) {
+    color: $gray-800;
+  }
+
+  &:hover {
+    color: unset;
+  }
+}
+
+.nav-item .dropdown-wrapper {
+  width: 100vw;
+  height: auto;
+  position: absolute !important;
+  left: -9999px;
+  right: -9999px;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 100;
+
+  @include media-breakpoint-up(lg) {
+    width: calc(100vw - var(--scrollbar-width)) !important;
+    position: absolute;
+    top: 64px;
+    box-shadow: $box-shadow-md;
+  }
+}
+
+.topNav-item.active + .dropdown-wrapper {
+  display: block;
+}
+
+.subMenu-heading {
+  color: $sbr-text-interactive !important;
+  text-transform: uppercase;
+}
+
+.subMenu-listItem {
+  width: 100% !important;
+
+  @include media-breakpoint-up(lg) {
+    width: 25% !important;
+  }
+
+  color: $gray-800;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  height: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    color: $sbr-text-primary;
+    background-color: $sbr-background-light;
+  }
+
+  & + .triMenu-listWrapper {
+    display: none;
+  }
+
+  &.active {
+    color: $sbr-text-interactive;
+    background-color: #e3edff;
+
+    & + .triMenu-listWrapper {
+      display: block;
+
+      @include media-breakpoint-down(lg) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.triMenu-listWrapper {
+  width: 100% !important;
+  top: -126.5px;
+  margin-left: 100vw;
+  background-color: $white;
+  z-index: 100;
+
+  &.active {
+    margin-left: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 75% !important;
+    margin-left: 25%;
+    top: 0;
+  }
+}
+
+.triMenu-listItem {
+  break-inside: avoid;
+
+  .triMenu-listItemHeading {
+    color: $gray-800 !important;
+    font-size: 14px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 1rem;
+    }
+
+    line-height: 1.5rem;
+    font-weight: 600;
+    height: 2rem;
+    cursor: default;
+    position: relative;
+  }
+
+  a {
+    color: #21252d !important;
+    font-size: 14px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 1rem;
+    }
+
+    line-height: 1.5rem;
+    font-weight: 400;
+    height: 2rem;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      color: $sbr-text-primary;
+      font-weight: 600;
+      background-color: $sbr-background-light;
+    }
+
+    &.active {
+      color: $sbr-text-interactive !important;
+      font-weight: 600;
+      background-color: #e3edff;
+    }
+  }
+}
+
+.triMenu-list {
+  column-count: 1;
+
+  @include media-breakpoint-up(lg) {
+    column-count: 4;
+  }
+}
+
+.menu-col-count {
+  column-count: 1;
+
+  @include media-breakpoint-up(lg) {
+    column-count: 4;
+
+    &.col-count-3 {
+      column-count: 3 !important;
+    }
+
+    &.col-count-4 {
+      column-count: 4 !important;
+    }
+
+    &.col-count-5 {
+      column-count: 5 !important;
+    }
+
+    &.col-count-6 {
+      column-count: 6 !important;
+    }
+  }
+}
+
+// NEW HEADER STYLES - BELOW THE FOLD
+@include media-breakpoint-up(lg) {
+  .grid-cols- {
+    &5 {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    &6 {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  .grid-span- {
+    &2 {
+      grid-column: span 2;
+
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    &3 {
+      grid-column: span 3;
+
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+.clickToPreviousMenu {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.mobileMaxHeight {
+  @include media-breakpoint-down(lg) {
+    height: calc(100vh - 56px) !important;
+  }
+}
+
+.menuVerticalScroll {
+  @include media-breakpoint-down(lg) {
+    overflow-y: scroll;
+    column-count: unset;
+    height: 100%;
+    max-height: calc(100vh - 185px);
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+}
+
+body {
+  &:has(#header.opened) {
+    @include media-breakpoint-down(lg) {
+      overflow-y: hidden;
+    }
+  }
+}

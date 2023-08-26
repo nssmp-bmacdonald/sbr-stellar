@@ -1,0 +1,20 @@
+@mixin tooltip($type, $width: 4rem) {
+    &:before {
+        width: $width;
+        @if  ($type == top) {
+            margin: -4.2em auto 0 -2.2em;
+            @include animation(transition-duration, $sbr-fade-animation-timing);
+            @include animation(transition-property, 'margin-top, opacity, visibility');    
+        }
+    }
+    &:hover {
+        &:before {
+            visibility: visible;
+            opacity: 100%;
+            content: attr(title);
+            @if  ($type == top) {
+                margin: -3.8em auto 0 -2.2em;
+            }
+        }
+    }
+}

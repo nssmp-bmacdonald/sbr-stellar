@@ -1,0 +1,10 @@
+@mixin pulse {
+    @include animation(animation-duration, $sbr-pulse-animation-timing);
+    @include animation(animation-fill-mode, "both");
+    &:hover,
+    &:focus,
+    &:active {
+        @include animation(animation-name, pulse);
+        @include animation(animation-timing-function, "ease-in-out");
+    }
+}

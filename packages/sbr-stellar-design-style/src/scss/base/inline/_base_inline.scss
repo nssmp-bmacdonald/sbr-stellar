@@ -1,0 +1,345 @@
+@import '../../abstracts/mixins';
+@import '../../design-system/fonts';
+
+html {
+  font-size: calc((var(--base) / 16) * 100%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-base;
+  @include media-breakpoint-down(lg) {
+    &.body-overlay {
+      width: 100%;
+      position: fixed;
+      overflow-y: scroll;
+    }
+    &.popopen {
+      height: 100%;
+      overflow-y: hidden;
+    }
+  }
+}
+main {
+  min-height: 50vh;
+}
+
+@for $i from 1 through 4 {
+  h#{$i},
+  .h#{$i} {
+    @include getHeading(true, $i);
+    @include media-breakpoint-up(lg) {
+      @include getHeading(false, $i);
+    }
+  }
+}
+.display-2 {
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-4xl;
+  }
+}
+h1,
+.h1 {
+  @include getH1(true);
+  margin-bottom: map-get($spacers, 4);
+  @include media-breakpoint-up(lg) {
+    @include getH1(false);
+    margin-bottom: map-get($spacers, 5);
+  }
+}
+@for $i from 1 through 4 {
+  .h#{$i}-alt {
+    h#{$i},
+    .h#{$i} {
+      @include getHeadingAlt(true, $i);
+      @include media-breakpoint-up(lg) {
+        @include getHeadingAlt(false, $i);
+      }
+    }
+  }
+  h#{$i}.h#{$i}-alt,
+  .h#{$i}.h#{$i}-alt {
+    @include getHeadingAlt(true, $i);
+    @include media-breakpoint-up(lg) {
+      @include getHeadingAlt(false, $i);
+    }
+  }
+}
+h2.h2-2alt,
+.h2.h2-2alt {
+  @include media-breakpoint-down(lg) {
+    font-size: $font-size-xl;
+    line-height: $line-height-sm;
+  }
+}
+p,
+.p {
+  @include getParagraph(true);
+  @include media-breakpoint-up(lg) {
+    @include getParagraph(false);
+  }
+}
+b {
+  font-weight: $font-weight-semibold;
+}
+
+/* Remove all text decoration from anchors */
+a {
+  &.skip-main-content {
+    background: $gray-800;
+    height: 30px;
+    left: 50vw;
+    padding: map-get($spacers, 2);
+    position: absolute;
+    transform: translateY(-110%);
+    transition: transform 0.3s;
+    color: $white;
+    z-index: 100;
+    @include media-breakpoint-down(lg) {
+      left: 0;
+      width: 100%;
+    }
+    &:focus,
+    &:active {
+      transform: translateY(0%);
+    }
+  }
+}
+
+.no-button {
+  background: none;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.breadcrumb-item {
+  a {
+    @include media-breakpoint-down(lg) {
+      padding: toRem(16) toRem(8);
+    }
+  }
+}
+
+.btn {
+  &-primary {
+    &:hover {
+      background-color: $primary-400 !important;
+      border-color: $primary-400 !important;
+    }
+    @include media-breakpoint-down(lg) {
+      padding: map-get($spacers, 3) map-get($spacers, 3);
+    }
+  }
+  &-outline {
+    &-secondary {
+      border-color: $gray-400;
+    }
+  }
+}
+
+.horizontalScrollbar {
+  overflow-x: auto;
+  /* width */
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb:hover {
+    background: $gray-200;
+  }
+}
+
+.bg {
+  &-dark {
+    background-color: $sbr-bg-dark;
+    color: $white;
+    .h1,
+    .h2,
+    p {
+      color: $white;
+    }
+    a:not(.btn) {
+      color: $white;
+
+      &.active {
+        color: $white;
+      }
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+    .btn-outline {
+      &-secondary {
+        color: $white;
+      }
+    }
+    .bg-white {
+      color: $body-color;
+
+      a:not(.btn) {
+        color: $body-color;
+
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+    }
+  }
+
+  &-darker {
+    background-color: $gray-900;
+    color: $white;
+    .h1,
+    .h2,
+    p {
+      color: $white;
+    }
+    a:not(.btn),
+    .text-interactive {
+      color: $white;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+
+  &-lighter {
+    background-color: $sbr-bg-light;
+  }
+}
+
+.text {
+  &-sbrBlue {
+    color: $primary-400;
+  }
+  &-linkBlue {
+    color: $sbr-text-interactive;
+  }
+  &-sbrRed {
+    color: $red-500;
+  }
+  &-sbrGreen {
+    color: $success;
+  }
+  &-grey {
+    color: $gray-500;
+  }
+  &-med {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-none;
+  }
+  &-primary {
+    &.text-outlined {
+      color: white;
+      -webkit-text-stroke: 2px $primary;
+      -webkit-text-fill-color: white;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Use case: when your lazily loaded images show their alt text and the empty image icon before loading.
+img:not([src]):not([srcset]) {
+  visibility: hidden;
+}
+
+//For fixed header overlap on anchor links - commented out until needed
+/*h2.anchor-link-offset:target {
+    @include media-breakpoint-down(lg) {
+        scroll-margin-top: 135px;
+    }
+}*/
+
+[class^='mat-icon-'],
+[class*=' mat-icon-'] {
+  &:before {
+    content: '';
+    display: inline-block;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    width: map-get($spacers, 4);
+    height: map-get($spacers, 4);
+  }
+}
+
+.mat-icon {
+  &-size-20 {
+    width: toRem(20);
+    height: toRem(20);
+    &:before {
+      width: toRem(20);
+      height: toRem(20);
+    }
+  }
+}
+.bg-noise {
+  position: relative;
+  height: 100%;
+  background-image: url('https://img.sportsbookreview.com/images/backgrounds/bg-noise-repeatable-dark.png?auto=compress&auto=format&w=60');
+  background-repeat: repeat;
+  opacity: 0.35;
+}
+
+.bg-noise-gradient {
+  background: linear-gradient(
+    87.84deg,
+    #14161c -26.17%,
+    rgba(33, 37, 45, 0) 133.26%
+  );
+}
+.badge {
+  &-primary {
+    background-color: $primary;
+  }
+
+  &-dark {
+    background-color: $sbr-bg-dark;
+  }
+
+  &-light {
+    color: $text-color-secondary;
+    background-color: $sbr-bg-light;
+  }
+
+  &-lightblue {
+    color: $primary;
+    background-color: $sbr-bg-lightblue;
+  }
+  &-md {
+    font-size: $badge-md-font-size;
+    line-height: $line-height-md;
+  }
+}
+
+.shadow {
+  &-primary {
+    @include box-shadow($box-shadow-primary);
+  }
+  &-md {
+    box-shadow: $box-shadow-md;
+  }
+}
+
+.bottomBorderBlue {
+  border-bottom: 15px solid $primary;
+}

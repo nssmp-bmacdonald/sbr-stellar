@@ -1,0 +1,5 @@
+@import '../../abstracts/mixins';
+@import '../../abstracts/functions';
+
+$avilable-icons: 'settings-ethernet';
+@include getIcons($avilable-icons);

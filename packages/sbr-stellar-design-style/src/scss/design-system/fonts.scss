@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Adjusted Verdana Fallback';
+    src: local(Verdana);
+    size-adjust: 100%;
+    ascent-override: normal;
+    descent-override: normal;
+    line-gap-override: normal;
+  }
+  @font-face {
+    font-family: 'Adjusted Trebuchet MS Fallback';
+    src: local(Trebuchet MS);
+    size-adjust: 95%;
+    ascent-override: 105%;
+    descent-override: normal;
+    line-gap-override: normal;
+  }
+  
+  @font-face {
+    font-family: 'Barlow';
+    src: url($url + 'fonts/Barlow/Barlow-Regular.ttf');
+    font-weight: $font-weight-normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Barlow';
+    src: url($url + 'fonts/Barlow/Barlow-SemiBold.ttf');
+    font-weight: $font-weight-bold;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Factoria';
+    src: url($url + 'fonts/Factoria/Factoria-Bold.woff2');
+    font-style: normal;
+    font-weight: $font-weight-bold;
+    font-stretch: normal;
+    font-display: swap;
+  }

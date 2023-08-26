@@ -1,0 +1,25 @@
+$url: 'https://img.sportsbookreview.com/';
+@import 'vendors/custom_bootstrap';
+
+@import 'vendors/SBR';
+@import 'vendors/material-icons';
+@import 'base/base_inline';
+
+@import 'base/base';
+@import 'vendors/animations/animate';
+
+/* Header */
+@import '../../components/🔷Organisms/Header/Header.module';
+
+/* COMPONENTS */
+@import '../../components/🔷Organisms/Hero/Hero.module';
+@import '../../components/🔷Organisms/BasicTable/BasicTable.module';
+@import '../../components/🔷Organisms/Transaction/Transaction.module.scss';
+@import '../../components/💠Molecules/FAQ/Faq.module';
+@import '../../components/💠Molecules/Breadcrumbs/Breadcrumbs.module.scss';
+
+/* Footer */
+@import '../../components/🔷Organisms/Footer/Footer.module';
+
+@import 'pages/points/points';
+@import 'pages/points/history';

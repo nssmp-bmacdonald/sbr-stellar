@@ -1,0 +1,32 @@
+@import '/styles/abstracts/variables';
+
+.ModalWrapper {
+    .ModalHeader {
+        height: 4rem;
+        width: 100%;
+        color: $white;
+        background-color: get-color(sbr-blue, bckg-darker);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+            background-color: get-color(sbr-blue, shade-10);
+            padding-left: 1.5rem;
+        }
+        .Close {
+            cursor: pointer;
+            padding-right: 3vw;
+            color: $white;
+        }
+        
+    }
+    .ModalContent {
+        padding: 5vh 5vw;
+        &.Large {
+            padding: 2vh 2vw;  
+        }
+    }
+}
+    
+    

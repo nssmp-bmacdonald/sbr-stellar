@@ -1,0 +1,12 @@
+@mixin fadeOptions {
+    @include animation(transition-duration, $sbr-fade-animation-timing);
+    @include animation(transition-property, "color, background-color");
+}
+
+@mixin fade($bgColor) {
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $bgColor;
+    }
+}

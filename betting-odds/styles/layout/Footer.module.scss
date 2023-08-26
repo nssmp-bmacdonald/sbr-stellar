@@ -1,0 +1,128 @@
+@import '/styles/abstracts/mixins';
+
+
+.footer {
+  color: $white;
+  line-height: 1.9rem;
+  min-height: auto;
+  padding-top: 3rem;
+  font-family: $openSans;
+  font-size: 1.2rem;
+  .link {
+    color: $white;
+    @media (max-width: $maxTabletWidth) {
+      display: inline-block;
+      font-size: 1.4rem;        
+      line-height: 1.5;
+      padding: .8rem;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .logo {
+    // width: 7.3rem;
+    // height: 2.4rem;
+    margin-left: 5vw;
+    @media ( min-width: $breakLG  ) {
+      // width: 7.8rem;
+      // height: 2.5rem;
+      margin-left: 2.48vw;
+    }
+    &-ontario {
+      width: 12rem;
+      height: 2.4rem;
+      margin-top: 0;
+      position: absolute;
+      right: 5vw;
+      @media (max-width: $maxTabletWidth) {
+        right: 4vw;
+        width: 14rem;
+        height: 5rem;
+        margin-top: -4.0rem;
+      }
+      &:hover {
+        @include opacity(0.9);
+      }
+    }
+  }
+}
+.half {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  > li {
+    margin-bottom: 1.2rem;
+    line-height: 1;
+  }
+  @media ( min-width: $breakLG  ) {
+    flex-direction: row;
+    > li {
+      height: auto;
+      align-items: center;
+      padding-right: 1.5rem;
+      margin-right: 1.5rem;
+      border-right: .1rem solid get-color(gray-variant, light-20);
+    }
+    > li:last-of-type {
+      border-right: none;
+    }
+  }
+}
+.nav-container {
+  min-height: 7rem;
+  padding: 3rem 2.48vw 4rem 2.48vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  > hr {
+    display: block;
+    margin: 1rem 0 2rem 0;
+    border: 1px solid get-color(gray-variant, light-20);
+  }
+}
+.social-media {
+  font-size: 2rem;
+  padding: 1rem 2.48vw 2rem 2.48vw;
+  text-align: center;
+  @media ( min-width: $breakLG  ) {
+    font-size: 2rem;
+    padding: 0 2.48vw 0;
+  }
+  .link {
+    margin-right: 2.48vw;
+    text-align: center;
+    font-size: 2rem;
+    @media ( min-width: $breakLG  ) {
+      margin-right: 1rem;
+      font-size: 1.6rem;
+    }
+    @media (max-width: $maxTabletWidth) {
+      padding-right: 1rem;
+      padding-left: 1rem;
+      margin-right: 0;
+    }
+  }
+}
+.copyright {
+  padding-bottom: 2.4rem;
+  @media ( min-width: $breakLG  ) {
+    padding-bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 6.5rem;
+  }
+  @media (max-width: $maxTabletWidth) {
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  p {
+    padding: 0 2.48vw;
+    @media (max-width: $maxTabletWidth) {
+      text-align: center;
+    }
+  }
+}

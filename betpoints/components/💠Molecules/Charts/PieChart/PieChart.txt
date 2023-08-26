@@ -1,0 +1,82 @@
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js';
+import { useState } from 'react';
+import { Doughnut } from 'react-chartjs-2';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const chartColors = [
+  '#336699',
+  '#99CCFF',
+  '#999933',
+  '#666699',
+  '#CC9933',
+  '#006666',
+  '#3399FF',
+  '#993300',
+  '#CCCC99',
+  '#666666',
+  '#FFCC66',
+  '#6699CC',
+  '#663366',
+];
+const options = {
+  legend: {
+    display: false,
+    position: 'right',
+  },
+  elements: {
+    arc: {
+      borderWidth: 0,
+    },
+  },
+};
+
+export const dete = {
+  labels: ['Red', 'Blue'],
+  datasets: [
+    {
+      label: '# of Votes',
+      data: [12, 19],
+      backgroundColor: chartColors,
+    },
+  ],
+};
+
+let data = {
+  maintainAspectRatio: false,
+  responsive: false,
+  labels: [],
+  datasets: [
+    {
+      data: [12, 19],
+      backgroundColor: chartColors,
+      hoverBackgroundColor: chartColors,
+    },
+  ],
+};
+
+const PieChart: any = (labels: any, dataset: any) => {
+  const [dataLabels] = useState(labels);
+  const [dataSet] = useState(dataset);
+
+  // data = {
+  //   maintainAspectRatio: false,
+  //   responsive: false,
+  //   labels: dataLabels,
+  //   datasets: [
+  //     {
+  //       data: dataSet,
+  //       backgroundColor: chartColors,
+  //       hoverBackgroundColor: chartColors,
+  //     },
+  //   ],
+  // };
+
+  return (
+    <>
+      <Doughnut options={options} data={data} />
+    </>
+  );
+};
+
+export default PieChart;

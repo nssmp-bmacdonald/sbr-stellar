@@ -1,0 +1,17 @@
+.sportsbooks-card-view {
+  width: 100%;
+}
+
+.sportsbooks-card-view {
+  &__wrapper {
+    min-height: 9.125rem;
+  }
+  &__description {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 3rem;
+    -webkit-line-clamp: 3;
+  }
+}

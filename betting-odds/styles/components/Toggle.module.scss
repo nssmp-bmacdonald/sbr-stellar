@@ -1,0 +1,33 @@
+@import '/styles/abstracts/variables';
+
+.Toggle {
+  display: flex;
+  flex-direction: row;
+  height: 3rem;
+  width: 6rem;
+  background-color: get-color(blues, tint-10);
+  border-radius: 1.5rem;
+  cursor: pointer;
+  margin-left: 5px;
+  .ToggleItem {
+    margin: 0.2rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:first-child {
+      border-radius: 1.5rem 0 0 1.5rem;
+    }
+    &:last-child {
+      border-radius: 0 1.5rem 1.5rem 0;
+    }
+    &.Selected {
+      color: $white;
+    }
+    &.NoSelected {
+      color: get-color(blacks, 80);
+      background-color: $white;
+    }
+  }
+}

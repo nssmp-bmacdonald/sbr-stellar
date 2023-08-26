@@ -1,0 +1,69 @@
+﻿@import "../../abstracts/mixins";
+
+/* ADD (animate-animating animate-pulse) classes to the item you want to animate with pulse */
+/*
+    Issues with current animation:
+     - scale is blurring image during animation.
+*/
+
+.#{$nameClass} {
+    @include setAnimation;
+    &-pulse {
+        @include pulse;
+    }  
+    &-fade {
+        @include fadeOptions;
+    }
+    &-icon {
+        &-forward {
+            @include iconForward;
+        }
+        &-back {
+            @include iconForward;
+        }
+    }
+    &-sweep {
+        &-left,
+        &-right {
+            @include sweep;
+        }
+        &-left {
+            @include sweepLeft($red-500);
+        }
+        &-right {
+            @include sweepRight();
+        }
+    }
+    &-underline {
+        &-left,
+        &-right,
+        &-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        &-left {
+            @include underlineLeft;
+        }
+        &-right {
+            @include underlineRight;
+        }
+        &-reveal {
+            @include underlineReveal;
+        }
+    }
+}
+
+@include keyframes('pulse') {
+	25% {
+		@include animation(transform, scale(1.1));
+	}
+
+	75% {
+		@include animation(transform, scale(.9));
+	}
+}
+
+
+
+
+  

@@ -1,0 +1,65 @@
+.hero {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  &-md {
+    min-height: toRem(352);
+    .container,
+    .row {
+      min-height: toRem(352);
+    }
+  }
+  &-lg {
+    min-height: toRem(432);
+    .container,
+    .row {
+      min-height: toRem(432);
+    }
+    @include media-breakpoint-up(lg) {
+      min-height: toRem(560);
+      .container,
+      .row {
+        min-height: toRem(560);
+      }
+    }
+  }
+  &.bg {
+    &-top {
+      &-left {
+        background-position: top left;
+      }
+      &-right {
+        background-position: top right;
+      }
+    }
+    &-center {
+      background-position: center;
+      &-left {
+        background-position: center left;
+      }
+      &-right {
+        background-position: center right;
+      }
+    }
+    &-bottom {
+      &-left {
+        background-position: bottom left;
+      }
+      &-right {
+        background-position: bottom right;
+      }
+    }
+    &-repeat {
+      background-repeat: repeat;
+      &-y {
+        background-repeat: repeat-y;
+      }
+      &-x {
+        background-repeat: repeat-x;
+      }
+    }
+    &-cover {
+      background-size: cover;
+    }
+  }
+}

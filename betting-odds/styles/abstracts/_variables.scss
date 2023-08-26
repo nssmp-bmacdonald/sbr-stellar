@@ -1,0 +1,159 @@
+@import '/styles/abstracts/functions';
+
+// **************
+// Breakpoints
+// **************
+$breakSMLandscape:  '480px';
+$breakSM:           '375px';
+$breakSM2:          '571px';
+$breakMD:           '768px';
+$breakLG:           '1024px';
+$breakXL:           '1366px';
+$break2XL:          '1440px';
+
+$maxMobileWidth:    '767px';
+$maxTabletWidth:    '1023px';
+
+@function get-color($base, $shade: base) {
+    $color: map-get(map-get($colors, $base), $shade);
+    @return $color;
+}
+
+// **************
+// SBRODDS
+// **************
+$black:     #000000;
+$white:     #ffffff;
+$silver:    #ECECEC;
+
+$blue:      #025bff;
+
+$red:       #E31C3D;
+$carmine:   #9F001A;
+$orange:    #FB6E36;
+$yellow:    #FCBA46;
+$green:     #2E963D;
+$lime:      #74D937;
+$brown:     #9F5631;
+
+$sbr-primary:   #003557;
+$sbr-odds:      #0E4CEB;
+$stone:         #193441;
+$gray:          #414B57;
+$blue-dark:     #3c4352;
+
+$sbr-matteblue:        #3E6184;
+$sbr-background-light: #eef1f4;
+$sbr-neutral-100:      #14161c;
+$sbr-neutral-200:      #21252d;
+$sbr-neutral-800:      #ced2db;
+
+$colors: (
+    blacks: (
+        10: tint($black, 10),       // #1a1a1a
+        15: tint($black, 15),       // #262626
+        20: tint($black, 20),       // #333333
+        30: tint($black, 30),       // #4d4d4d
+        40: tint($black, 40),       // #666666
+        45: tint($black, 45),       // #737373 --- $gray9: #717074;
+        50: tint($black, 50),       // gray
+        60: tint($black, 60),       // #999999
+        70: tint($black, 70),       // #b3b3b3
+        80: tint($black, 80),       // #cccccc
+        90: tint($black, 90)        // #f2f2f2
+    ),
+    silvers: (
+        tint-50: tint($silver, 50)  // #f6f6f6
+    ),
+    yellows: (
+        light: tint($yellow, 85)    // #fff5e3
+    ),
+    sbr-blue: (
+        shade-10:   shade($sbr-primary, 10),        // #00304e --- $blue3: #003556;
+        link:       $blue,      // #0092f0 --- $sbr-link-selected-color: #0099FF;
+        lighten-5:  lighten($sbr-primary, 5),       // #004571
+        bckg:       tint($sbr-primary, 95),         // #f2f5f7 --- $ligthgray: #F5F7F8;,
+        bckg-darker:#21252d, //#243983,    
+        header:     #192862,
+        ddheader:   #0F1736,
+    ),
+    blues: (
+        tint-10:    tint($blue, 10),                // #1aa0d7
+        tint-15:    tint($blue, 15),                // #26a5da --- $blue2: #29A7DF;
+        tint-75:    tint($blue, 75),                // #bfe5f4 --- $lightblue: #00ADF0;
+        shade-10:   shade($blue, 10),               // #0086be --- $blue4: #0080AF;  
+        shade-15:   shade($blue, 15),               // #007fb3 --- $blue1: #007ACC;  
+        light-20:   lighten($blue, 20),             // #3ac5ff --- $blue6: #3295d3;
+    ),
+    gray-variant: (
+        tint-20:    tint($gray, 20),                // #676f79 --- $manatee: #6F6F71;
+        tint-45:    tint($gray, 45),                // #98a4b2
+        light-20:   lighten($gray, 20),             // #6d7d91 --- $gray7: #697785;
+        light-35:   lighten($gray, 35),             // #98a4b2 --- $gray6: #91A0AA;
+        light-45:   lighten($gray, 45),             // #b5bec8 --- $gray21: #B1C0CB;
+        light-60:   lighten($gray, 60),             // #e1e5e9 --- $gray3: #D7DEE2;
+        light-85:   tint($stone, 85),               // #e8ebec --- $gray1: #EBEFF1;
+    )
+);
+
+
+// **************
+// Border variables
+// **************
+
+$default-border:    1px solid get-color(blacks, 90);
+$secondary-border:  1px solid $silver;
+$tertiary-border:   2px solid $silver;
+
+// **************
+// Shadow variables
+// **************
+
+$shadow-right: inset -20px 1px 22px -22px get-color(blacks, 40);
+$shadow-small: 0 1px 2px 0 rgba($black, 0.1);
+$shadow-small-sec: 0 0 0.3rem rgb($black, 0.25);
+$shadow-medium: 0 1px 3px rgba($black, 0.2);
+$shadow-medium-sec: 0 0.1rem 0.3rem -0.1rem rgb($black, 0.15);
+$shadow-large: 8px 0px 20px 0px rgba($black, 0.15);
+$shadow-large-sec: 0 0 10rem rgb($black, 0.1);
+
+
+// **************
+// Header && Footer variables
+// **************
+$headerHeight: 3.4rem + 5rem;
+
+
+// **************
+// Grids
+// **************
+
+$gridsHeaderHeight: 4rem;
+
+// **************
+// Play by play
+// **************
+$playByPlaysCompactHeight: 1.6rem;
+
+
+// **************
+// Compact grids
+// **************
+$containerWidth: 86.97vw;           // 133.6rem = 1336px
+$bettingOptionsBoxWidth: 21.48vw;   // 33rem = 330px
+$consensusWidth: 5vw;             // 6rem = 60px
+$openerWidth: 6.5vw;                // 8rem = 80px
+$boxContainerWidth: 14.32vw;          // 22rem = 220px
+$boxContainerWidthMobile: 14rem;
+$compactBettingOptionWidth: 11rem;
+$compactBettingOptionHeight: 4.8rem;
+$rotationCompactContainerWidth: 3rem;
+
+// **************
+// Fonts
+// **************
+
+$openSans: 'OpenSans', 'Open Sans', sans-serif;
+$openSansBold: 'OpenSans-Bold', 'Open Sans Bold', sans-serif;
+$factoria: 'Factoria';
+

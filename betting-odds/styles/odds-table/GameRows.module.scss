@@ -1,0 +1,740 @@
+@import '/styles/abstracts/variables';
+@import '/styles/abstracts/mixins';
+
+$participantHeight: 2.4rem;
+
+.icon {
+  > i {
+    color: $red;
+  }
+}
+.innerOddsContainer {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.oddsNumber {
+  height: 4rem;
+  font-size: 1.2rem;
+  line-height: 4rem;
+  text-align: center;
+
+  @media (min-width: $breakLG) {
+    height: 3.5rem;
+  }
+
+  &.futureMarket {
+    margin: 0;
+  }
+  &.compact {
+    height: 2.4rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    line-height: normal;
+    @media (max-width: $maxTabletWidth) {
+      height: 4rem;
+    }
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+.lastBook {
+  @include box-shadow($shadow-right);
+}
+.animate {
+  animation: cellColor;
+  animation-duration: 60s;
+}
+.offline {
+  color: get-color(gray-variant, tint-20);
+  cursor: default;
+}
+.nonBorderBottom {
+  border-bottom: none;
+}
+.bestOdd {
+  color: $blue;
+}
+.adjust {
+  margin-right: 0.2rem;
+
+  @media (min-width: $breakLG) {
+    margin-right: .5rem;
+  }
+}
+.margin {
+  margin-right: 0.5rem;
+}
+@keyframes cellColor {
+  0% {
+    background-color: transparent;
+  }
+  1% {
+    background-color: $carmine;
+    color: white;
+  }
+  34% {
+    background-color: $carmine;
+    color: white;
+  }
+  35% {
+    background-color: $orange;
+    color: white;
+  }
+  68% {
+    background-color: $orange;
+    color: white;
+  }
+  69% {
+    background-color: $yellow;
+    color: white;
+  }
+  99% {
+    background-color: $yellow;
+    color: white;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+
+.containerTable {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
+  z-index: 1;
+
+  .consensusAndoddsContainer {
+    border-radius: 0.3rem 0 0 0;
+    height: 100%;
+
+    &.compact {
+      border-radius: 0;
+    }
+    &.flex {
+      display: flex;
+    }
+  }
+  .compactPlayByPlay {
+    min-height: $playByPlaysCompactHeight;
+  }
+}
+.oddsContainer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  > div {
+    height: 100%;
+  }
+  &.mobile,
+  &.compact {
+    border-left: none;
+
+    .arrow {
+      top: calc(50% - 2rem) !important;
+    }
+  }
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(50% + #{$gridsHeaderHeight} - 4rem);
+    height: 4rem;
+    width: 2rem;
+    cursor: pointer;
+    border-radius: .4rem;
+    color: transparentize(black, .7);
+    font-size: 1.2rem;
+    z-index: 1;
+
+    &.right {
+      right: 0;
+    }
+    &.top {
+      top: 2rem;
+    }
+    &:hover {
+      background-color: black;
+      @include opacity(0.3);
+      color: $white;
+    }
+  }
+  .columnsContainer {
+    display: flex;
+    height: 100%;
+    @media (min-width: $breakLG) {
+      position: absolute;
+      left: 0;
+    }
+
+    section {
+      min-width: 8.3rem;
+      width: 8.3rem;
+    }
+    &.left {
+      right: 0;
+      left: auto;
+    }
+  }
+  .hoverOverPlaceholder {
+    width: 100%;
+  }
+}
+.borderLeft {
+  border-right: $secondary-border;
+}
+.numbersContainer {
+  > main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    &.compact {
+      border-right: $default-border;
+      height: 100%;
+    }
+  }
+  &:last-child > main.compact {
+    border-right: none;
+  }
+}
+.sportbooks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: $default-border;
+  background-color: get-color(silvers, 50);
+  height: $gridsHeaderHeight;
+  overflow: hidden;
+
+  a,
+  div {
+    width: 5.8rem;
+  }
+  img {
+    width: 100%;
+  }
+}
+@keyframes cellColor {
+  0% {
+    background-color: transparent;
+  }
+  1% {
+    background-color: $carmine;
+    color: white;
+  }
+  34% {
+    background-color: $carmine;
+    color: white;
+  }
+  35% {
+    background-color: $orange;
+    color: white;
+  }
+  68% {
+    background-color: $orange;
+    color: white;
+  }
+  69% {
+    background-color: $yellow;
+    color: white;
+  }
+  99% {
+    background-color: $yellow;
+    color: white;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  white-space: nowrap;
+}
+.inlineBlock {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &.leftMargin {
+    margin-left: -100%;
+  }
+  .columnsContainer {
+    display: flex;
+    @media (min-width: $breakLG) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    > * {
+      flex: 1;
+    }
+  }
+}
+.eventMarketGridContainer {
+  margin-top: .5rem;
+  display: flex;
+  border: $default-border;
+  &:not(:first-child) {
+    border-top: 0 none;
+  }
+  flex-flow: row wrap;
+  position: relative;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  color: $black;
+  @media (max-width: $maxTabletWidth) {
+    border-top: 0 none;
+  }
+  &:hover {
+    background-color: get-color(yellows, light);
+  }
+
+  &.compact,
+  &.future {
+    margin-top: 0rem;
+    &.playByPlayModalOpen {
+      z-index: 2;
+    }
+  }
+  &:not(.compact) {
+    &.playByPlayModalOpen {
+      z-index: 1;
+    }
+  }
+  &.neverWrap {
+    flex-flow: unset;
+  }
+  &.borderGrid {
+    border-bottom: $default-border;
+  }
+}
+
+.participants {
+  height: $participantHeight;
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  @media ( min-width: $breakLG ) {
+    height: auto;
+  }
+
+  &.participantLeftSpace {
+    padding-left: 1rem;
+  }
+}
+.rotContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: $rotationCompactContainerWidth;
+}
+.actionIconContainer {
+  right: -0.1rem;
+  display: flex;
+  align-items: center;
+  height: 2.4rem;
+  padding-left: 0.2rem;
+}
+.actionIcon {
+  font-size: 2rem;
+  font-style: normal;
+  margin-right: 0.2rem;
+  right: 0;
+
+  &.smallFont {
+    font-size: 1.2rem;
+  }
+  &.winnerIcon {
+    color: get-color(blues, shade-10);
+  }
+  &.actionIconCollapsedScore {
+    right: 2.4rem;
+  }
+  &.bat {
+    color: $brown;
+  }
+  &.powerplay {
+    color: $sbr-primary;
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+    .actionIconCollapsedScore > & {
+      margin-right: 0;
+    }
+  }
+}
+.participantContainer {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+
+  &.participantFuture {
+    overflow: visible;
+    align-items: center;
+
+    & > .participant {
+      padding-left: 1rem;
+      white-space: nowrap;
+    }
+  }
+}
+.horseRacingParticipant {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  color: $black;
+  padding-left: 1rem;
+
+  @media ( min-width: $breakLG ) {
+    flex-direction: row;
+  }
+}
+.pitcher {
+  font-weight: normal;
+}
+.participantText {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: $black;
+}
+.smallNumber {
+  display: flex;
+  font-size: 1rem;
+  color: get-color(gray-variant, light-20);
+  min-width: 1.7rem;
+
+  &.timeouts {
+    align-self: center;
+
+    > div {
+      background-color: get-color(blacks, 60);
+      border-radius: 50%;
+      margin-right: .1rem;
+      width: .4rem;
+      height: .4rem;
+    }
+  }
+}
+.gradientContainer {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: inherit;
+  display: flex;
+  flex: auto;
+  overflow: hidden;
+  align-items: center;
+
+  &:hover:not(.removeHover) {
+    color: $red;
+    cursor: pointer;
+  }
+  .participantBox {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+}
+
+.gradientContainerNoHover {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: inherit;
+  display: flex;
+  flex: auto;
+  overflow: hidden;
+  align-items: center;
+  padding-left: 0.7rem;
+
+  .participantBox {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+}
+
+.pitcher,
+.pitcherText {
+  font-weight: normal;
+  white-space: nowrap;
+
+  & > .participantBox {
+    flex: 3;
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+}
+.startingPitcher {
+  color: $red;
+}
+.alignRight {
+  justify-content: space-between;
+}
+.nonBorderBottom {
+  border-bottom: none;
+}
+.scores {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: -0.1rem;
+  min-width: 2.5rem;
+
+  > div {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+$participantHeight: 2.4rem;
+$televisionContainerSize: 5.5rem;
+
+.compactBettingOptionContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  max-width: 14rem;
+  min-width: 14rem;
+  @media ( min-width: $breakLG ) {
+    min-width: $bettingOptionsBoxWidth;
+    max-width: $bettingOptionsBoxWidth;
+  }
+
+  .threeColumns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    @media ( min-width: $breakLG ) {
+      border-right: $default-border;
+    }
+
+    &.fit {
+      width: 100%;
+    }
+
+    .bettingOptionContainer {
+      flex-grow: 10;
+      overflow: hidden;
+    }
+  }
+  .compactBettingOption {
+    width: $compactBettingOptionWidth;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    border-right: $default-border;
+  }
+  .timeContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    height: 100%;
+    justify-content: space-around;
+    min-width: 6.3rem;
+    text-align: center;
+    margin-left: 7px;
+
+    .h2h {
+      color: $red;
+      padding: 0.5rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    span {
+      text-align: left;
+    }
+    .spacer {
+      font-size: 1.6rem;
+      margin-bottom: .4rem;
+      color: get-color(blacks, 80);
+    }
+    .time {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .icon {
+      font-size: 1.6rem;
+    }
+    & > div {
+      &:last-child {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+.baseballDiamondContainer {
+  background-color: white;
+  height: 4.8rem;
+  position: absolute;
+  margin-left: 31.9rem;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+  top: 0;
+  left: 0;
+
+  &.shadow {
+    @include box-shadow($shadow-large);
+  }
+}
+.baseballDiamondButton {
+  cursor: pointer;
+  border-right: $default-border;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  min-width: 1.5rem;
+  height: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  color: rgba(0, 0, 0, 0.21);
+  background-color: $white;
+}
+.baseballDiamondWraper {
+  background-color: $white;
+  align-self: flex-end;
+  border-left: none;
+}
+.showHideButton {
+  width: 2.6rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .3rem 0rem 0rem .3rem;
+  font-size: 2rem;
+  color: $white;
+  cursor: pointer;
+  @include opacity(0);
+  position: absolute;
+  top: 0.4rem;
+  margin-right: 0.1rem;
+
+  &:hover {
+    background-color: black;
+    @include opacity(0.3);
+  }
+}
+.showHideButtonOpen {
+  right: 25px;
+}
+
+.showHideButtonClose {
+  right: 0;
+}
+.footballIcon {
+  color: $brown !important;
+}
+.televisionContainer {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: get-color(silvers, 50);
+  height: $compactBettingOptionHeight;
+  top: 0;
+  width: $televisionContainerSize;
+  right: -$televisionContainerSize;
+  animation: slide 0.5s forwards;
+  position: absolute;
+
+  @keyframes slide {
+    100% {
+      right: 0;
+    }
+  }
+
+  .tvChannel {
+    font-size: 1rem;
+    @include opacity(0.6);
+    text-align: center;
+    font-family: $openSans;
+    font-weight: 700;
+    color: $black;
+    margin-bottom: .5rem;
+    max-width: $televisionContainerSize;
+  }
+}
+.opener {
+  min-width: $openerWidth;
+  width: $openerWidth;
+}
+.consensusColumn {
+  overflow: hidden;
+  transition: all 0.3s;
+
+  &.consensus {
+    @media (min-width: $breakLG) {
+      min-width: $consensusWidth;
+      width: $consensusWidth;
+    }
+
+    span {
+      cursor: pointer;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+  
+  .placeholder {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &.compact {
+      .element {
+        min-height: auto;
+      }
+    }
+  }
+  .oddsNumberPlaceholder {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .element {
+      flex: 1;
+      display: flex;
+      min-height: 4rem;
+      align-items: center;
+      justify-content: center;
+
+      > span {
+        background-color: get-color(silvers, 50);
+        border-radius: 0.2rem;
+        height: 1.2rem;
+        width: 70%;
+      }
+    }
+  }
+}

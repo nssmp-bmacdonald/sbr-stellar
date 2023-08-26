@@ -1,0 +1,69 @@
+ul[role='tablist'] {
+  .nav-link {
+    font-size: $font-size-sm;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: map-get($spacers, 1);
+    border-width: map-get($border-widths, 2);
+    &:not(.active) {
+      color: $text-muted;
+    }
+  }
+}
+
+///https://codepen.io/crayon-code/pen/vYXpmPB
+.ribbon {
+  position: absolute;
+  right: map-get($spacers, 2i);
+  top: -4px;
+  filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.5));
+  & > .content {
+    color: white;
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: 400;
+    padding: 8px 2px 4px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+    width: var(--width, 32px);
+    min-height: var(--height, 36px);
+    transition: clip-path 1s, padding 1s, background 1s;
+    &.white {
+      background: $white
+        linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(255, 255, 255, 0.25) 100%
+        );
+    }
+    &.dark {
+      background: $dark
+        linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(255, 255, 255, 0.25) 100%
+        );
+    }
+  }
+  &.slant-down {
+    & > .content {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        50% calc(100% - 6px),
+        0 calc(100% - 12px)
+      );
+    }
+  }
+  &.down {
+    & > .content {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% calc(100% - 8px),
+        50% 100%,
+        0 calc(100% - 8px)
+      );
+    }
+  }
+}

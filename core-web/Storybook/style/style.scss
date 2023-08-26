@@ -1,0 +1,11 @@
+@import 'documents/welcome';
+
+@import 'components/typeStyle';
+
+@import '../../🎨styles/sass/global.scss';
+
+@import '../../🎨styles/sass/abstracts/mixins';
+@import '../../🎨styles/sass/abstracts/functions';
+
+$avilable-icons: 'mat-icon-arrow-back';
+@include getIcons($avilable-icons);

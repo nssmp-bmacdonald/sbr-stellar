@@ -1,0 +1,40 @@
+﻿@import '../../../🎨styles/sass/abstracts/mixins';
+@import '../../../🎨styles/sass/abstracts/functions';
+@import '../../../🎨styles/sass/vendors/icons/icons';
+$avilable-icons: 'person', 'expand-more';
+@include getIcons($avilable-icons);
+
+.bp-header {
+  .left-navbar-nav {
+    .nav-item {
+      @include media-breakpoint-up(lg) {
+        margin-left: map-get($spacers, 4);
+      }
+    }
+    .nav-link {
+      border-bottom: 3px solid transparent;
+      padding-bottom: map-get($spacers, 3);
+      &.active {
+        border-bottom-color: $primary;
+        @include media-breakpoint-down(lg) {
+          border-left: 3px solid $primary;
+          margin-left: map-get($spacers, 2) * -1;
+          padding-left: map-get($spacers, 2);
+          border-bottom-color: transparent;
+        }
+      }
+    }
+  }
+  .navbar-toggler {
+    @include media-breakpoint-down(lg) {
+      margin-bottom: map-get($spacers, 2);
+    }
+    &[aria-expanded='true'] {
+      .navbar-toggler-icon {
+        background-image: url(map-get($icons, 'close'));
+        filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(355deg)
+          brightness(103%) contrast(106%);
+      }
+    }
+  }
+}

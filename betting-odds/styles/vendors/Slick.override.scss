@@ -1,0 +1,53 @@
+@import '/styles/abstracts/mixins';
+
+.slick-slider {
+    .slick {
+        &-arrow {
+            position: absolute;
+            top: 50%;
+            height: 4rem;
+            width: 2rem;
+            cursor: pointer;
+            background: transparent;
+            color: transparent;
+            border-radius: 0.4rem;
+            font-size: 1.2rem;
+            z-index: 1;
+            border: 0 none;
+            background-color: transparent;
+            padding: 1.3rem 0 0 0;
+            &:hover, &:focus {
+                background: transparent;
+                color: transparent;
+            }
+        }
+        &-prev,
+        &-next {
+            &:before {
+                @include build-icon("", 1rem, 1);
+                color: rgba(0,0,0,.3);
+                
+            }
+            &:hover {
+                background: rgba(0,0,0,.3);
+                &:before {
+                    color: $white;
+                }
+            }
+        }
+        &-prev {
+            &:before {
+                content: "\e90d";
+            }
+        }
+        &-next {
+            right: 0.5rem;
+            &:before {
+                content: "\e90e";
+            }
+        }
+        &-disabled {
+            display: none !important;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+$date-picker-size: 18rem;
+.react-datepicker {
+    font-family: $openSans !important;
+    font-size: 1.2rem !important;
+    width: $date-picker-size;
+    border-color: $silver !important;
+    @include box-shadow($shadow-small);
+    &-popper {
+        width: $date-picker-size !important;
+        margin-left: -10rem !important;
+    }
+    &__triangle {
+        transform: translate3d(120px, 0px, 0px) !important;
+        &:before {
+            border-bottom-color: $silver !important;
+        }
+        &:after {
+            border-bottom-color: get-color(sbr-blue, bckg-darker) !important;
+        }
+    }
+    &__month-container {
+        width: 100% !important;
+    }
+    &__header {
+        background-color: get-color(sbr-blue, bckg-darker) !important;
+    }
+    &__current-month {
+        color: $white !important;
+        font-size: inherit !important;
+        margin: .5rem 0 !important;
+    }
+    &__day, 
+    &__month-text, 
+    &__quarter-text, 
+    &__year-text {
+        &--disabled {
+            color: get-color(gray-variant, light-35) !important;
+        }
+    }
+    &__day {
+        margin: 0.3rem !important;
+        &-name {
+            color: $white !important;
+            margin: 0.3rem !important;
+        }
+        &--today {
+            color: $white !important;
+            background-color: tint(get-color(sbr-blue, bckg-darker), 50) !important;
+            border-radius: 2px !important;
+        }
+        &--selected {
+            background-color: $red !important;
+            border-radius: 2px !important;
+        }
+    }
+    
+}

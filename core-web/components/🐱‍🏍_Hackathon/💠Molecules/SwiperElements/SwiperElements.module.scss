@@ -1,0 +1,35 @@
+$avilable-icons: 'chevron-right', 'chevron-left';
+@include getIcons($avilable-icons);
+
+$avilable-icons: 'chevron-right', 'chevron-left';
+@include getIcons($avilable-icons);
+
+.swiper {
+  img {
+    max-width: 100%;
+  }
+  &-button-prev,
+  &-button-next {
+    top: map-get($spacers, 4) !important;
+    color: $body-color !important;
+    padding: map-get($spacers, 2i) map-get($spacers, 3) !important;
+    &:after {
+      font-size: $font-size-sm !important;
+      font-weight: 700;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: top left;
+      background-size: cover;
+      width: map-get($spacers, 4);
+      height: map-get($spacers, 4);
+    }
+  }
+  &-button-prev {
+    left: auto !important;
+    right: map-get($spacers, 6) !important;
+  }
+}
+.mySwiper,
+.swiper-wrapper {
+  position: static !important;
+}

@@ -1,0 +1,94 @@
+
+@mixin underlineLeft {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		right: 100%;
+		bottom: 0;
+		background: $primary-500;
+		height: auto;
+		@include animation(transition-property, "right");
+		@include animation(transition-duration, $sbr-border-animation-timing);
+		@include animation(transition-timing-function, ease-out);
+	}
+	&:hover,
+	&:focus {
+		&:before {
+			right: 0;
+		}
+	}
+}
+
+@mixin underlineLeftColor($activeColor: $primary-500, $height:map-get($spacers, 1)) {
+    &:before {
+        height: $height;
+        background: $activeColor;
+    }
+}
+
+@mixin underlineRight {
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		left: 100%;
+		right: 0;
+		bottom: 0;
+		background: $primary-500;
+		height: auto;
+		@include animation(transition-property, "left");
+		@include animation(transition-duration, $sbr-border-animation-timing);
+		@include animation(transition-timing-function, ease-out);
+	}
+	&:hover,
+	&:focus {
+		&:before {
+			left: 0;
+		}
+	}
+}
+
+@mixin underlineRightColor($activeColor: $primary-500, $height:map-get($spacers, 1)) {
+    &:before {
+        height: $height;
+        background: $activeColor;
+    }
+}
+
+
+@mixin underlineReveal {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: auto;
+		@include animation(transform, translateY(auto));
+		@include animation(transition-property, transform);
+		@include animation(transition-duration, $sbr-border-animation-timing);
+		@include animation(transition-timing-function, ease-out);
+	}
+	&:hover,
+	&:focus {
+		&:before {
+			@include animation(transform, translateY(0));
+		}
+	}
+}
+
+@mixin underlineRevealColor($activeColor:$primary-500, $height:map-get($spacers, 1)) {
+    &:before {
+        height: $height;
+        background: $activeColor;
+        @include animation(transform, translateY($height));
+
+    }
+}

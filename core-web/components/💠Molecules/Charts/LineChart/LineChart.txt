@@ -1,0 +1,83 @@
+import {
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LineElement,
+  LinearScale,
+  PointElement,
+  Title,
+  Tooltip,
+} from 'chart.js';
+import { useState } from 'react';
+import { Line } from 'react-chartjs-2';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const optionLine = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: false,
+    title: {
+      display: false,
+    },
+  },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      color: 'white',
+      max: 1000,
+      min: 0,
+      border: {
+        display: false,
+      },
+      ticks: {
+        stepSize: 500,
+        callback: function () {
+          return '';
+        },
+      },
+    },
+  },
+};
+
+const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'];
+
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: '',
+      data: [],
+      borderColor: '#025BFF',
+      backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      borderWidth: 4,
+      lineTension: 0.5,
+      borderJoinStyle: 'bevel',
+      borderCapStyle: 'round',
+      spanGaps: true,
+      pointStyle: false,
+    },
+  ],
+};
+
+const LineChart: any = (labels: any, dataset: any) => {
+  const [dataLabels] = useState(labels);
+  const [dataSet] = useState(dataset);
+
+  return <Line data={data} />;
+};
+
+export default LineChart;

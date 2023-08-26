@@ -1,0 +1,248 @@
+@import '/styles/abstracts/variables';
+@import '/styles/abstracts/mixins';
+
+.Dropdown {
+  position: relative;
+  width: auto;
+  .DropdownButton {
+    border: none;
+    border-radius: 3px;
+    background-color: transparent;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    min-width: auto;
+    text-align: left;
+    height: 36px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    outline: 0;
+    @include box-shadow($shadow-small);
+    &:after {
+      @include build-icon("\E90F", 1rem, 1);
+      margin-left: 1rem;
+    }
+    &[aria-expanded=true] {
+      &:after {
+        content: "\E910";
+      }
+    }
+    &.MarketSelector {
+      background: $white;
+      border-radius: 4px;
+      border: 0.1rem solid  get-color(gray-variant, light-45);
+      //@include box-shadow($shadow-medium);
+      box-shadow: none;
+      padding: 1rem 1.5rem;
+      color: $sbr-matteblue;
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+      &:after {
+        content: "\E916";
+      }
+      &[aria-expanded=true] {
+        &:after {
+          content: "\E90C";
+        }
+      }
+      @media ( max-width: $maxTabletWidth  ) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+      }
+    }
+  }
+  .DropdownList {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    top: 3.8rem;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    text-align: left;
+    list-style: none;
+    background-color: $white;
+    background-clip: padding-box;
+    border-radius: 0.5rem;
+    background-color: $white;
+    @include box-shadow($shadow-medium);
+    margin: 0;
+    padding: 0;    
+    min-width: 9rem;
+    .Item {
+      width: 100%;
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-indent: 0;
+      color: $stone;
+      min-height: 4.4rem;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-bottom: 0.1rem solid get-color(gray-variant, light-60);
+      &.FitList {
+        text-align: left;
+        justify-content: flex-start;
+        padding: 0 .5rem;
+      }
+      &:hover {
+        background-color: get-color(sbr-blue, bckg);
+      }
+      &.Selected {
+        font-weight: bold;
+      }
+      
+    }
+    .LinkItem {
+      display: block;
+      font-size: 14px;
+      line-height: 2.5;
+      color: $black;
+      border-bottom: 1px solid $silver;
+      font-weight: 400;
+      padding: 3px 12px;
+      transition: all .1s;
+      &:hover {
+        background: $sbr-background-light;
+      }
+    }
+  }
+}
+
+.DropDownOpen {
+  .DropdownList {
+    display: block;
+    min-width: 18rem;
+    &.large {
+      min-width: 30rem; 
+    }
+  }
+}
+
+
+.DropdownSportbook {
+  position: relative;
+  width: 100%;
+  background: $white;
+  border-radius: 0.4rem;
+  border: 0.1rem solid get-color(gray-variant, light-45);
+  @include box-shadow($shadow-medium);
+  transition: max-height .25s;
+  .DropdownButton {
+    border: 0 none;
+    background: transparent;
+    min-height: 0.4rem;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    &:after {
+      position: absolute;
+      right: 1rem;
+      top: 30%;
+      @include build-icon("\E916", 1.4rem, 1);
+      color: $blue-dark;
+      margin-left: 1rem;
+    }
+  }
+  .DropdownList {
+    display: none;
+    visibility: hidden;
+    flex-flow: row wrap;
+    justify-content: center;
+    position: absolute;
+    z-index: 9999;
+    top: 3.2rem;
+    background: $white;
+    border-radius: 0 0 0.4rem 0.4rem;
+    border: 0.1rem solid get-color(gray-variant, light-45);
+    border-top: none;
+    @include box-shadow($shadow-medium-sec);
+    transition: max-height .25s;    
+    margin: 0 -0.1rem;
+    padding: 0;
+    @media ( max-width: $maxTabletWidth  ) {
+      width: 100.5%;
+    }
+    .Item {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      padding-top: 3rem;
+      padding-left: 1rem;
+      @media ( max-width: $maxTabletWidth  ) {
+        padding-bottom: 2rem;
+      }
+      button {
+        width: 9rem;
+        height: 7.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $white;
+        border-radius: 0.4rem;
+        cursor: pointer;
+        border: 0 none;
+        &:hover,
+        &:focus {
+          border: 0.1rem solid get-color(gray-variant, light-35);
+        }
+        img {
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+        }
+      }
+      &.Selected {
+        button {
+          background: linear-gradient(310.26deg,hsla(0,0%,100%,0), $white 50.75%), get-color(gray-variant, light-85);
+          border: 0.1rem solid get-color(blues, tint-15);
+          @include box-shadow($shadow-small-sec);
+          &:hover,
+          &:focus {
+            border: 0.1rem solid get-color(gray-variant, light-35);
+          }
+          img {
+            -webkit-filter: none;
+            filter: none;
+          }
+        }
+      }
+    }
+  }
+}
+.DropSportOpen {
+  max-height: 58rem;
+  .DropdownButton {
+    &:after {
+      content: "\E90C";
+    }
+  }
+  .DropdownList {
+    display: flex;
+    visibility: visible;
+  }
+}
+
+
+.DropDownContainer {
+  margin-top: 1rem;
+  position: relative;
+  @media (min-width: $breakLG) {
+    margin-top: 2.2rem;
+    margin-bottom: 1.5rem;
+  }  
+  .Dropdown {
+    margin-top: 0.5rem;;
+  }
+  &.largerMobileContainer {
+    margin-right: 0.8rem;
+    width: 65vw;
+    @media (min-width: $breakLG) {
+      width: auto;
+    }
+  }
+}

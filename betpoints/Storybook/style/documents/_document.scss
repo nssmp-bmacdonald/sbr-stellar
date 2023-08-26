@@ -1,0 +1,35 @@
+.position-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+.sbdocs.sbdocs-content,
+.container {
+    max-width: 100%;
+}
+.box-shadow-me {
+    box-shadow: inset 15px 0px 15px -15px #000;
+}
+.tip {
+    display: inline-block;
+    border-radius: 1em;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: 700;
+    background: #E7FDD8;
+    color: #66BF3C;
+    padding: 4px 12px;
+    margin-right: 10px;
+    vertical-align: top;
+    &-wrapper {
+        font-size: 13px;
+        line-height: 20px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        code {
+            font-size: 12px;
+            display: inline-block;
+        }
+    }
+}

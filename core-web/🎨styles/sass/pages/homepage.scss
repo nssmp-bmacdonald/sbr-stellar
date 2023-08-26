@@ -1,0 +1,110 @@
+$avilable-icons: 'forum', 'star', 'arrow-right-alt', 'emoji-events',
+  'swap-horiz';
+@include getIcons($avilable-icons);
+
+.hero-banner {
+  display: flex;
+  min-height: toRem(440);
+  background-image: url($sbr-star-background);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  @include media-breakpoint-down(lg) {
+    min-height: toRem(544);
+  }
+  &_content {
+    h1 {
+      span {
+        color: $primary;
+      }
+    }
+    .btn {
+      margin-top: map-get($spacers, 5);
+    }
+    img {
+      margin-top: map-get($spacers, 5);
+      @include media-breakpoint-down(lg) {
+        max-width: 100%;
+      }
+    }
+  }
+  &_image {
+    display: none;
+    visibility: hidden;
+    @include media-breakpoint-up(lg) {
+      display: block;
+      visibility: visible;
+    }
+  }
+}
+
+.sidebar-bricks {
+  &:not(:first-child) {
+    margin-top: map-get($spacers, 5);
+    border-top: $border-thin-dark;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      font-size: $h5-font-size;
+      margin: 0;
+      padding: 0;
+      margin-top: map-get($spacers, 5);
+    }
+  }
+  .btn {
+    width: 100%;
+    margin-top: map-get($spacers, 6);
+  }
+}
+
+.style-statistics {
+  margin-top: map-get($spacers, 5);
+  p {
+    text-align: center;
+    font-size: $h6-font-size;
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
+    span {
+      display: block;
+      font-size: $h4-font-size;
+      color: $success;
+    }
+  }
+}
+.content-section {
+  .btn-outline-secondary {
+    margin-top: map-get($spacers, 3);
+    margin-bottom: map-get($spacers, 5);
+  }
+  .sidebar-wrapper {
+    margin-left: map-get($spacers, 3) * -1;
+    margin-right: map-get($spacers, 2) * -1;
+    @include media-breakpoint-up(lg) {
+      margin: 0;
+    }
+  }
+  .sidebar-bricks {
+    ul {
+      li,
+      a {
+        display: flex;
+        align-items: center;
+      }
+      [class^='mat-icon-'],
+      [class*=' mat-icon-'] {
+        margin-right: map-get($spacers, 1);
+      }
+    }
+  }
+}
+.linkBlocks {
+  a {
+    &:hover {
+      background-color: $gray-200;
+    }
+  }
+}

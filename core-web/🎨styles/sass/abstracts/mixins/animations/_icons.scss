@@ -1,0 +1,32 @@
+@mixin iconSetup {
+    @include animation(transition-duration, $sbr-icon-animation-timing);
+	[class^="mat-icon-"], 
+    [class*=" mat-icon-"] {
+		@include animation(transform, translateZ(0));
+		@include animation(transition-duration, $sbr-icon-animation-timing);
+		@include animation(transition-property, transform);
+		@include animation(transition-timing-function, ease-out);
+	}
+}
+
+@mixin iconForward {
+	@include iconSetup;
+	&:hover,
+	&:focus,
+	&:active {
+		[class^="mat-icon-"], [class*=" mat-icon-"]  {
+			@include animation(transform, translateX(map-get($spacers, 1)));
+		}
+	}
+}
+
+@mixin iconBack {
+	@include iconSetup;
+	&:hover,
+	&:focus,
+	&:active {
+		[class^="mat-icon-"], [class*=" mat-icon-"]  {
+			@include animation(transform, translateX(map-get($spacers, 1) * -1));
+		}
+	}
+}

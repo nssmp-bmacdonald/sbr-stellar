@@ -1,0 +1,5 @@
+@import '../../abstracts/mixins';
+@import '../../abstracts/functions';
+
+$avilable-icons: 'edit', 'close';
+@include getIcons($avilable-icons);

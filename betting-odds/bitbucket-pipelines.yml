@@ -1,0 +1,124 @@
+definitions:
+  steps:
+    - step: &Test-step
+        name: Build and Test
+        image: node:16
+        caches:
+          - node
+        script:
+          - npm ci
+          - npm run build
+          - npm run test
+    - step: &Lint-step
+        name: Lint the code
+        image: node:16
+        caches:
+          - node
+        script:
+          - npm ci
+          - npm run lint
+pipelines:
+  default:
+    - step: *Test-step
+    - step: *Lint-step
+    - step:
+        name: Build, Publish and Deploy to Test
+        deployment: Test
+        trigger: manual
+        image: amazon/aws-cli:2.3.3
+        services:
+          - docker # Enable Docker for your repository
+        script:
+          # aws login
+          - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_REGISTRY_URL}
+          # docker
+          - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+          - docker build --build-arg BUILD_ENV=test -t ${IMAGE_NAME} .
+          # docker
+          - docker tag ${IMAGE_NAME}:latest ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-test
+          - docker tag ${IMAGE_NAME}:latest ${AWS_REGISTRY_URL}/${IMAGE_NAME}:test
+          - docker push ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-test
+          - docker push ${AWS_REGISTRY_URL}/${IMAGE_NAME}:test
+          # docker
+          - aws ecs update-service --service sbrodds-nextjs-service-test --cluster sportsbookreview-prod --region ${AWS_DEFAULT_REGION} --force-new-deployment
+  branches:
+    master:
+      - step: *Test-step
+      - step: *Lint-step
+      - step:
+          name: Build and Publish docker image
+          image: amazon/aws-cli:2.3.3
+          services:
+            - docker # Enable Docker for your repository
+          script:
+            - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+            # aws login
+            - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_REGISTRY_URL}
+            # docker UAT
+            - docker build --build-arg BUILD_ENV=uat -t ${IMAGE_NAME} .
+            - docker tag ${IMAGE_NAME}:latest ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-uat
+            - docker push ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-uat
+            # docker Staging
+            - docker build --build-arg BUILD_ENV=staging -t ${IMAGE_NAME} .
+            - docker tag ${IMAGE_NAME}:latest ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-staging
+            - docker push ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-staging
+            # docker Production
+            - docker build -t ${IMAGE_NAME} .
+            - docker tag ${IMAGE_NAME}:latest ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID
+            - docker push ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID
+      - step:
+          name: Git Tag Build Version
+          script:
+            - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+            - git tag -a v${BUILD_ID} -m "New release ${BUILD_ID}"
+            - git push origin --tags
+      - step:
+          name: Publish and Deploy to UAT
+          deployment: UAT
+          image: amazon/aws-cli:2.3.3
+          services:
+            - docker # Enable Docker for your repository
+          script:
+            - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+            # aws login
+            - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_REGISTRY_URL}
+            # docker
+            - docker pull ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-uat
+            # docker
+            - docker tag ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-uat ${AWS_REGISTRY_URL}/${IMAGE_NAME}:uat
+            - docker push ${AWS_REGISTRY_URL}/${IMAGE_NAME}:uat
+            - aws ecs update-service --service sbr-odds-nextjs-service-uat --cluster sportsbookreview-prod --region ${AWS_DEFAULT_REGION} --force-new-deployment
+      - step:
+          name: Publish and Deploy to Staging
+          deployment: Staging
+          trigger: manual
+          image: amazon/aws-cli:2.3.3
+          services:
+            - docker # Enable Docker for your repository
+          script:
+            - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+            # aws login
+            - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_REGISTRY_URL}
+            # docker
+            - docker pull ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-staging
+            # docker
+            - docker tag ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID-staging ${AWS_REGISTRY_URL}/${IMAGE_NAME}:staging
+            - docker push ${AWS_REGISTRY_URL}/${IMAGE_NAME}:staging
+            - aws ecs update-service --service sbr-odds-nextjs-service-preprod --cluster sportsbookreview-prod --region ${AWS_DEFAULT_REGION} --force-new-deployment
+      - step:
+          name: Publish and Deploy to Production
+          deployment: Production
+          trigger: manual
+          image: amazon/aws-cli:2.3.3
+          services:
+            - docker # Enable Docker for your repository
+          script:
+            - export BUILD_ID=$BITBUCKET_BRANCH_$BITBUCKET_COMMIT_$BITBUCKET_BUILD_NUMBER
+            # aws login
+            - aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_REGISTRY_URL}
+            # docker
+            - docker pull ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID
+            # docker
+            - docker tag ${AWS_REGISTRY_URL}/${IMAGE_NAME}:$BUILD_ID ${AWS_REGISTRY_URL}/${IMAGE_NAME}:latest
+            - docker push ${AWS_REGISTRY_URL}/${IMAGE_NAME}:latest
+            - aws ecs update-service --service sbr-odds-nextjs-service-prod --cluster sportsbookreview-prod --region ${AWS_DEFAULT_REGION} --force-new-deployment

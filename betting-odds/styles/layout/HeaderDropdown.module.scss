@@ -1,0 +1,355 @@
+@import '/styles/abstracts/variables';
+@import '/styles/abstracts/mixins';
+
+$top-dropdown: 13rem;
+
+.wrapper {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 1rem 0 1rem 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    @media (max-width: $maxTabletWidth) {
+        height: calc(100% - 4rem);
+    }
+}
+.menu-link {
+    width: 100%;
+    display: flex;
+    height: 4.4rem;
+    cursor: pointer;
+    min-height: 4.4rem;
+    align-items: center;
+    border-top-left-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+}
+.menu-title {
+    color: get-color(gray-variant, light-45);
+    font-size: 1.2rem;
+    font-style: normal;
+    line-height: 1.6rem;
+    font-weight: normal;
+    font-family: $openSans;
+}
+.menu-text {
+    color: $white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-style: normal;
+    font-family: $openSansBold;
+}
+.menu-icon {
+    margin: 0 1rem;
+    color: $white;
+    font-size: 2rem;
+    align-self: center;
+}
+.dropdown-nav {    
+    display: flex;
+    width: 14.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $blue;
+    justify-content: flex-end;
+    //background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.45) -103.75%, rgba(0, 0, 0, 0) 68.75%);
+    @media (max-width: $maxTabletWidth) {
+        width: 9.5rem;
+    }
+    @media (min-width: $breakLG) {
+        margin-right: 2rem;
+    }
+
+    .button {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0 none;
+        background: transparent;
+        cursor: pointer;
+        .text {
+            color: $white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 2.8rem;
+            justify-content: center;
+            //font-family: 'Open Sans Condensed', $openSansBold;
+        }
+       .icon {
+            width: 0;
+            height: 0;
+            margin-left: 0.5rem;
+            transition: all 0.25s ease;
+            border-top: 0.6rem solid $white;
+            -webkit-transition: all 0.25s ease;
+            border-left: 0.6rem solid transparent;
+            border-right: 0.6rem solid transparent;
+
+            &.rotate {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+    .smallButton {
+        > span {
+            font-size: 1.3rem !important;
+            @media (min-width: $breakLG) {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+  
+  .options {
+    top: 9.8rem;
+    height: 0;
+    z-index: 1000;
+    display: flex;
+    overflow: hidden;
+    position: absolute;
+    align-self: flex-start;
+    transition: height 0.25s;
+    -webkit-transition: height 0.25s;
+    @include box-shadow($shadow-medium);
+    font-family: $openSans, sans-serif;
+    @media (max-width: $maxTabletWidth) {
+      width: 100%;
+      position: fixed;
+      z-index: 1000;
+    }
+    @media (min-width: $breakLG) {
+        top: $top-dropdown;
+    }
+    .main-nav {
+        width: 14.5rem;
+        min-width: 14.5rem;
+        background-color: $sbr-neutral-100;
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 0.45) 118.75%);
+        @media (max-width: $maxTabletWidth) {
+            width: 9.5rem;
+            min-width: 9.5rem;
+            padding: 1.8rem 0 1.8rem 1.5rem;
+            transition: width 0.8s, min-width 0.8s;
+            -webkit-transition: width 0.8s, min-width 0.8s;
+        }
+        .divider {
+            width: 3.5rem;
+            height: 0.1rem;
+            margin: 1rem 0 1.8rem 0;
+            background-color: get-color(gray-variant, light-20);
+        }
+        &.close {
+            @media (max-width: $maxTabletWidth) {
+                width: 0;
+                min-width: 0;
+                padding: 0;
+            }
+        }
+    }
+    &.open {
+        height: 50rem;
+        @media (max-width: $maxTabletWidth) {
+            height: 100%;
+            &.hideHeader {
+              height: calc(100% + 4rem);
+            }
+        }
+    }
+    .main-nav,
+    .sports {
+        @extend .wrapper;
+        .title {
+            @extend .menu-title;
+            &.close {
+              visibility: hidden;
+              display: none;
+            }
+          }
+        .content-menu {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          padding: 0;
+          .link {
+            @extend .menu-link;
+            .text {
+              @extend .menu-text;
+              background: transparent;
+              border: 0 none;
+              cursor: pointer;
+            }
+          }
+        }
+        &.collapsed {
+          @media (max-width: $maxTabletWidth) {
+            width: 6rem;
+            padding: 1.8rem 0 4.8rem 0;
+            .title {
+                display: none;   
+            }
+            .content-menu {
+            .link {
+                .text {
+                    display: none;
+                }
+            }
+            }
+          }
+        }
+    }
+    .sports {
+      width: 18rem;
+      background-color: get-color(sbr-blue, bckg-darker);
+      @media (max-width: $maxTabletWidth) {
+          width: 100%;
+          transition: width 0.8s;
+          -webkit-transition: width 0.8s;
+          padding: 1.8rem 0 4.8rem 1.5rem;
+      }
+      .content-menu {
+        .link {
+          .icon {
+            height: 100%;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            @media (max-width: $maxTabletWidth) {
+                margin-left: .6rem;
+            }
+            > i {
+                @extend .menu-icon;
+            }
+          }
+          &.selected {
+            background-color: $white;
+            @media (max-width: $maxTabletWidth) {
+                &:before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    margin-left: 0.3rem;
+                    border-right: 0.6rem solid $black;
+                    border-top: 0.6rem solid transparent;
+                    border-bottom: 0.6rem solid transparent;                
+                }
+            }
+            .text {
+                color: $black;
+            }
+            .icon {
+                > i {
+                    color: $black;
+                }
+            }
+          }
+        }
+        
+      }
+    }
+    .leagues {
+      width: 0;
+      padding: 0;
+      @extend .wrapper;
+      background-color: white;
+      @media (max-width: $maxTabletWidth) {
+        // transition: width 0.8s;
+        // -webkit-transition: width 0.8s;
+      }
+      &.open {
+        width: auto;
+        padding: 1rem 0 1rem 1.5rem;
+        @media (max-width: $maxTabletWidth) {
+            width: 100%;
+            padding: 1.8rem 0 1.8rem 1.5rem;
+        }
+      }
+      .title {
+        @extend .menu-title;
+        color: get-color(gray-variant, light-20);
+      }
+      .content-menu {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 23.3rem; 
+        height: 35rem;
+        @media (max-width: $maxTabletWidth) {
+            width: 100%;
+            flex-wrap: nowrap;
+        }
+        .link {
+            height: 5rem;
+            display: flex;
+            width: 20.32rem;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            @media (max-width: $maxTabletWidth) {
+                width: 100%;
+                height: 6rem;
+                min-height: 6rem;
+            }
+            &:hover {
+                .text {
+                    color: get-color(sbr-blue, link);
+                }
+            }
+            .text {
+                @extend .menu-text;
+                color: $black;
+                //font-family: 'Open Sans Condensed', $openSansBold;
+                &.close {
+                    display: none;
+                }
+                &.selectedText {
+                    color: get-color(sbr-blue, link);
+                }
+            }
+            .subText {
+              @extend .menu-title;
+              color: get-color(gray-variant, light-20);
+              &.close {
+                  display: none;
+              }
+            }
+          }
+        &.large {
+            width: 70rem; 
+            height: 35rem;
+            .link {
+                width: 20.32rem;
+            }
+        }
+        &.medium {
+            width: 40rem;
+            height: 35rem;
+
+            .link {
+                width: 20.32rem;
+            }
+        }
+        }
+    }
+  }
+
+  .top-six {
+        &:hover {
+            .text {
+                color: $sbr-neutral-800 !important;
+            }
+        }
+    }

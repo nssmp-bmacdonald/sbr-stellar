@@ -1,0 +1,76 @@
+﻿@function tint($color, $percentage) {
+  @return mix(#fff, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(#000, $color, $percentage);
+}
+
+@function toRem($value) {
+  $remValue: calc($value / 16) * map-get($spacers, 3);
+  @return $remValue;
+}
+
+@function toEm($value) {
+  $convertToString: '#{$value}';
+  $removePercentage: removePercentage($convertToString);
+  $convertToNumber: stringToNumber($removePercentage);
+  $emValue: calc($convertToNumber / 100) * 1em;
+
+  @return $emValue;
+}
+
+@function toNumber($value) {
+  $convertToString: '#{$value}';
+  $removePercentage: removePercentage($convertToString);
+  $convertToNumber: stringToNumber($removePercentage);
+  $numberValue: calc($convertToNumber / 100) * 1;
+
+  @return $numberValue;
+}
+
+@function toPx($value) {
+  $convertToString: '#{$value}';
+  $removePercentage: removePercentage($convertToString);
+  $convertToNumber: stringToNumber($removePercentage);
+  $emValue: calc($convertToNumber / 100) * 1px;
+
+  @return $pxValue;
+}
+
+@function toWeight($value) {
+  @if $value == Light {
+    @return 300;
+  } @else if $value == Regular {
+    @return 400;
+  } @else if $value == Medium {
+    @return 500;
+  } @else if $value == SemiBold {
+    @return 600;
+  } @else if $value == Bold {
+    @return 700;
+  }
+}
+
+@function removePercentage($string) {
+  @return str-slice($string, 1, str-length($string) - 1);
+}
+
+@function stringToNumber($string) {
+  $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+  $numbers: 0 1 2 3 4 5 6 7 8 9;
+  $result: 0;
+
+  @for $i from 1 through str-length($string) {
+    $character: str-slice($string, $i, $i);
+    $index: index($strings, $character);
+    @if not $index {
+      @warn "Unknown character `#{$character}`.";
+      @return false;
+    }
+    $number: nth($numbers, $index);
+    $result: $result * 10 + $number;
+  }
+
+  @return $result;
+}

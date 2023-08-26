@@ -1,0 +1,95 @@
+// url: https://fonts.google.com/icons?icon.set=Material+Icons
+@import '../abstracts/mixins/transitions';
+.mat-icon {
+  &-size-16 {
+    width: map-get($spacers, 3);
+    height: map-get($spacers, 3);
+
+    &:before {
+      width: map-get($spacers, 3) !important;
+      height: map-get($spacers, 3) !important;
+    }
+  }
+  &-size-24 {
+    width: map-get($spacers, 4);
+    height: map-get($spacers, 4);
+
+    &:before {
+      width: map-get($spacers, 4) !important;
+      height: map-get($spacers, 4) !important;
+    }
+  }
+  &-size-32 {
+    width: map-get($spacers, 5);
+    height: map-get($spacers, 5);
+    &:before {
+      width: map-get($spacers, 5) !important;
+      height: map-get($spacers, 5) !important;
+    }
+  }
+  &-size-48 {
+    width: map-get($spacers, 6);
+    height: map-get($spacers, 6);
+    &:before {
+      width: map-get($spacers, 6) !important;
+      height: map-get($spacers, 6) !important;
+    }
+  }
+  &-size-64 {
+    width: map-get($spacers, 7);
+    height: map-get($spacers, 7);
+    &:before {
+      width: map-get($spacers, 7) !important;
+      height: map-get($spacers, 7) !important;
+    }
+  }
+}
+.content-section {
+  a:hover {
+    [class^='mat-icon-'],
+    [class*=' mat-icon-'] {
+      &:before {
+        // https://codepen.io/sosuke/pen/Pjoqqp
+        filter: invert(18%) sepia(80%) saturate(3832%) hue-rotate(219deg)
+          brightness(106%) contrast(104%);
+      }
+    }
+  }
+}
+.scale {
+  &-y {
+    @include animation(transform, scaleY(-1));
+  }
+  &-x {
+    @include animation(transform, scaleX(-1));
+  }
+}
+.icon {
+  // https://codepen.io/sosuke/pen/Pjoqqp
+  &-white {
+    &::before {
+      filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(355deg)
+        brightness(103%) contrast(106%);
+    }
+  }
+  &-blue {
+    &::before {
+      filter: invert(18%) sepia(84%) saturate(4684%) hue-rotate(217deg) 
+        brightness(106%) contrast(109%);
+    }
+  }
+  &-green {
+    &::before {
+      // Green-500 / #19b959
+      filter: invert(52%) sepia(9%) saturate(5802%) hue-rotate(101deg)
+        brightness(104%) contrast(80%);
+    }
+  }
+  &-red {
+    &::before {
+      // Red-500 / #e31c3d
+      filter: invert(17%) sepia(63%) saturate(5503%) hue-rotate(342deg)
+        brightness(93%) contrast(91%);
+    }
+  }
+}

@@ -1,0 +1,2452 @@
+$availableCountries: 'ca', 'us', 'gb';
+
+$sizes: (
+  '': 4,
+  // 16px flag size
+  '-1x': 2.669,
+  // 24px flag size
+  '-2x': 2,
+  // 32px flag size
+  '-3x': 1 // 64px flag size,
+);
+$i: 1;
+.flag {
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    // flag background is always the 100% size (64px)
+    width: 64px;
+    height: 64px;
+    background: url($url + 'images/flags-sprite.png?fm=webp&auto=compress&auto=format')
+      no-repeat;
+    background-size: auto;
+    content: '';
+    display: block;
+  }
+
+  @each $size, $scale in $sizes {
+    &.flag#{$size} {
+      // flag container size is the same as the selected flag size
+      width: calc(64px / $scale);
+      height: calc(64px / $scale);
+
+      &:after {
+        // background image gets aligned to the center of the container
+        margin-left: calc(((64 - (64 / $scale)) / 2) * -1px);
+        margin-top: calc(((64 - (64 / $scale)) / 2) * -1px);
+        transform: scale(calc(1 / $scale));
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ad' {
+      &.flag-ad {
+        &:after {
+          background-position: 0 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ae' {
+      &.flag-ae {
+        &:after {
+          background-position: calc(-64px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'af' {
+      &.flag-af {
+        &:after {
+          background-position: calc(-128px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ag' {
+      &.flag-ag {
+        &:after {
+          background-position: calc(-192px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ai' {
+      &.flag-ai {
+        &:after {
+          background-position: calc(-256px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'al' {
+      &.flag-al {
+        &:after {
+          background-position: calc(-320px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'am' {
+      &.flag-am {
+        &:after {
+          background-position: calc(-384px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'an' {
+      &.flag-an {
+        &:after {
+          background-position: calc(-448px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ao' {
+      &.flag-ao {
+        &:after {
+          background-position: calc(-512px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'aq' {
+      &.flag-aq {
+        &:after {
+          background-position: calc(-576px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ar' {
+      &.flag-ar {
+        &:after {
+          background-position: calc(-640px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'as' {
+      &.flag-as {
+        &:after {
+          background-position: calc(-704px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'at' {
+      &.flag-at {
+        &:after {
+          background-position: calc(-768px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'au' {
+      &.flag-au {
+        &:after {
+          background-position: calc(-832px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'aw' {
+      &.flag-aw {
+        &:after {
+          background-position: calc(-896px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ax' {
+      &.flag-ax {
+        &:after {
+          background-position: calc(-960px / $i) 0;
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'az' {
+      &.flag-az {
+        &:after {
+          background-position: 0 calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ba' {
+      &.flag-ba {
+        &:after {
+          background-position: calc(-64px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bb' {
+      &.flag-bb {
+        &:after {
+          background-position: calc(-128px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bd' {
+      &.flag-bd {
+        &:after {
+          background-position: calc(-192px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'be' {
+      &.flag-be {
+        &:after {
+          background-position: calc(-256px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bf' {
+      &.flag-bf {
+        &:after {
+          background-position: calc(-320px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bg' {
+      &.flag-bg {
+        &:after {
+          background-position: calc(-384px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bh' {
+      &.flag-bh {
+        &:after {
+          background-position: calc(-448px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bi' {
+      &.flag-bi {
+        &:after {
+          background-position: calc(-512px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bj' {
+      &.flag-bj {
+        &:after {
+          background-position: calc(-576px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bl' {
+      &.flag-bl {
+        &:after {
+          background-position: calc(-640px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bm' {
+      &.flag-bm {
+        &:after {
+          background-position: calc(-704px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bn' {
+      &.flag-bn {
+        &:after {
+          background-position: calc(-768px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bo' {
+      &.flag-bo {
+        &:after {
+          background-position: calc(-832px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'br' {
+      &.flag-br {
+        &:after {
+          background-position: calc(-896px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bs' {
+      &.flag-bs {
+        &:after {
+          background-position: calc(-960px / $i) calc(-64px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bt' {
+      &.flag-bt {
+        &:after {
+          background-position: 0 calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bw' {
+      &.flag-bw {
+        &:after {
+          background-position: calc(-64px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'by' {
+      &.flag-by {
+        &:after {
+          background-position: calc(-128px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'bz' {
+      &.flag-bz {
+        &:after {
+          background-position: calc(-192px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ca' {
+      &.flag-ca {
+        &:after {
+          background-position: calc(-256px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cc' {
+      &.flag-cc {
+        &:after {
+          background-position: calc(-320px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cs' {
+      &.flag-cd {
+        &:after {
+          background-position: calc(-384px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cf' {
+      &.flag-cf {
+        &:after {
+          background-position: calc(-448px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cg' {
+      &.flag-cg {
+        &:after {
+          background-position: calc(-512px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ch' {
+      &.flag-ch {
+        &:after {
+          background-position: calc(-576px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ci' {
+      &.flag-ci {
+        &:after {
+          background-position: calc(-640px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ck' {
+      &.flag-ck {
+        &:after {
+          background-position: calc(-704px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cl' {
+      &.flag-cl {
+        &:after {
+          background-position: calc(-768px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cm' {
+      &.flag-cm {
+        &:after {
+          background-position: calc(-832px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cn' {
+      &.flag-cn {
+        &:after {
+          background-position: calc(-896px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'co' {
+      &.flag-co {
+        &:after {
+          background-position: calc(-960px / $i) calc(-128px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cr' {
+      &.flag-cr {
+        &:after {
+          background-position: 0 calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cu' {
+      &.flag-cu {
+        &:after {
+          background-position: calc(-64px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cv' {
+      &.flag-cv {
+        &:after {
+          background-position: calc(-128px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cw' {
+      &.flag-cw {
+        &:after {
+          background-position: calc(-192px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cx' {
+      &.flag-cx {
+        &:after {
+          background-position: calc(-256px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cy' {
+      &.flag-cy {
+        &:after {
+          background-position: calc(-320px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'cz' {
+      &.flag-cz {
+        &:after {
+          background-position: calc(-384px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'de' {
+      &.flag-de {
+        &:after {
+          background-position: calc(-448px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'dj' {
+      &.flag-dj {
+        &:after {
+          background-position: calc(-512px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'dk' {
+      &.flag-dk {
+        &:after {
+          background-position: calc(-576px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'dm' {
+      &.flag-dm {
+        &:after {
+          background-position: calc(-640px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'do' {
+      &.flag-do {
+        &:after {
+          background-position: calc(-704px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'dz' {
+      &.flag-dz {
+        &:after {
+          background-position: calc(-768px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ec' {
+      &.flag-ec {
+        &:after {
+          background-position: calc(-832px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ee' {
+      &.flag-ee {
+        &:after {
+          background-position: calc(-896px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'eg' {
+      &.flag-eg {
+        &:after {
+          background-position: calc(-960px / $i) calc(-192px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'eh' {
+      &.flag-eh {
+        &:after {
+          background-position: 0 calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'er' {
+      &.flag-er {
+        &:after {
+          background-position: calc(-64px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'es' {
+      &.flag-es {
+        &:after {
+          background-position: calc(-128px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'et' {
+      &.flag-et {
+        &:after {
+          background-position: calc(-192px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'eu' {
+      &.flag-eu {
+        &:after {
+          background-position: calc(-256px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'efiu' {
+      &.flag-fi {
+        &:after {
+          background-position: calc(-320px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'fj' {
+      &.flag-fj {
+        &:after {
+          background-position: calc(-384px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'fk' {
+      &.flag-fk {
+        &:after {
+          background-position: calc(-448px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'fm' {
+      &.flag-fm {
+        &:after {
+          background-position: calc(-512px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'fo' {
+      &.flag-fo {
+        &:after {
+          background-position: calc(-576px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'fr' {
+      &.flag-fr {
+        &:after {
+          background-position: calc(-640px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ga' {
+      &.flag-ga {
+        &:after {
+          background-position: calc(-704px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gb' {
+      &.flag-gb {
+        &:after {
+          background-position: calc(-768px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gd' {
+      &.flag-gd {
+        &:after {
+          background-position: calc(-832px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ge' {
+      &.flag-ge {
+        &:after {
+          background-position: calc(-896px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gg' {
+      &.flag-gg {
+        &:after {
+          background-position: calc(-960px / $i) calc(-256px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gh' {
+      &.flag-gh {
+        &:after {
+          background-position: 0 calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gi' {
+      &.flag-gi {
+        &:after {
+          background-position: calc(-64px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gl' {
+      &.flag-gl {
+        &:after {
+          background-position: calc(-128px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gm' {
+      &.flag-gm {
+        &:after {
+          background-position: calc(-192px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gn' {
+      &.flag-gn {
+        &:after {
+          background-position: calc(-256px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gq' {
+      &.flag-gq {
+        &:after {
+          background-position: calc(-320px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gr' {
+      &.flag-gr {
+        &:after {
+          background-position: calc(-384px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gs' {
+      &.flag-gs {
+        &:after {
+          background-position: calc(-448px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gt' {
+      &.flag-gt {
+        &:after {
+          background-position: calc(-512px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gu' {
+      &.flag-gu {
+        &:after {
+          background-position: calc(-576px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gw' {
+      &.flag-gw {
+        &:after {
+          background-position: calc(-640px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'gy' {
+      &.flag-gy {
+        &:after {
+          background-position: calc(-704px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'hk' {
+      &.flag-hk {
+        &:after {
+          background-position: calc(-768px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'hn' {
+      &.flag-hn {
+        &:after {
+          background-position: calc(-832px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'hr' {
+      &.flag-hr {
+        &:after {
+          background-position: calc(-896px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ht' {
+      &.flag-ht {
+        &:after {
+          background-position: calc(-960px / $i) calc(-320px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'hu' {
+      &.flag-hu {
+        &:after {
+          background-position: 0 calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ic' {
+      &.flag-ic {
+        &:after {
+          background-position: calc(-64px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'id' {
+      &.flag-id {
+        &:after {
+          background-position: calc(-128px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ie' {
+      &.flag-ie {
+        &:after {
+          background-position: calc(-192px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'il' {
+      &.flag-il {
+        &:after {
+          background-position: calc(-256px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'im' {
+      &.flag-im {
+        &:after {
+          background-position: calc(-320px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'in' {
+      &.flag-in {
+        &:after {
+          background-position: calc(-384px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'iq' {
+      &.flag-iq {
+        &:after {
+          background-position: calc(-448px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ir' {
+      &.flag-ir {
+        &:after {
+          background-position: calc(-512px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'is' {
+      &.flag-is {
+        &:after {
+          background-position: calc(-576px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'it' {
+      &.flag-it {
+        &:after {
+          background-position: calc(-640px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'je' {
+      &.flag-je {
+        &:after {
+          background-position: calc(-704px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'jm' {
+      &.flag-jm {
+        &:after {
+          background-position: calc(-768px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'jo' {
+      &.flag-jo {
+        &:after {
+          background-position: calc(-832px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'jp' {
+      &.flag-jp {
+        &:after {
+          background-position: calc(-896px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ke' {
+      &.flag-ke {
+        &:after {
+          background-position: calc(-960px / $i) calc(-384px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'kg' {
+      &.flag-kg {
+        &:after {
+          background-position: 0 calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'kh' {
+      &.flag-kh {
+        &:after {
+          background-position: calc(-64px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ki' {
+      &.flag-ki {
+        &:after {
+          background-position: calc(-128px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'km' {
+      &.flag-km {
+        &:after {
+          background-position: calc(-192px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'kn' {
+      &.flag-kn {
+        &:after {
+          background-position: calc(-256px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'kp' {
+      &.flag-kp {
+        &:after {
+          background-position: calc(-320px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'kr' {
+      &.flag-kr {
+        &:after {
+          background-position: calc(-384px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'kw' {
+      &.flag-kw {
+        &:after {
+          background-position: calc(-448px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ky' {
+      &.flag-ky {
+        &:after {
+          background-position: calc(-512px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'kz' {
+      &.flag-kz {
+        &:after {
+          background-position: calc(-576px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'la' {
+      &.flag-la {
+        &:after {
+          background-position: calc(-640px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'lb' {
+      &.flag-lb {
+        &:after {
+          background-position: calc(-704px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'lc' {
+      &.flag-lc {
+        &:after {
+          background-position: calc(-768px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'li' {
+      &.flag-li {
+        &:after {
+          background-position: calc(-832px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'lk' {
+      &.flag-lk {
+        &:after {
+          background-position: calc(-896px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'lr' {
+      &.flag-lr {
+        &:after {
+          background-position: calc(-960px / $i) calc(-448px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ls' {
+      &.flag-ls {
+        &:after {
+          background-position: 0 calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'lt' {
+      &.flag-lt {
+        &:after {
+          background-position: calc(-64px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'lu' {
+      &.flag-lu {
+        &:after {
+          background-position: calc(-128px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'lv' {
+      &.flag-lv {
+        &:after {
+          background-position: calc(-192px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ly' {
+      &.flag-ly {
+        &:after {
+          background-position: calc(-256px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ma' {
+      &.flag-ma {
+        &:after {
+          background-position: calc(-320px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mc' {
+      &.flag-mc {
+        &:after {
+          background-position: calc(-384px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'md' {
+      &.flag-md {
+        &:after {
+          background-position: calc(-448px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'me' {
+      &.flag-me {
+        &:after {
+          background-position: calc(-512px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mf' {
+      &.flag-mf {
+        &:after {
+          background-position: calc(-576px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mg' {
+      &.flag-mg {
+        &:after {
+          background-position: calc(-640px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mh' {
+      &.flag-mh {
+        &:after {
+          background-position: calc(-704px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mk' {
+      &.flag-mk {
+        &:after {
+          background-position: calc(-768px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ml' {
+      &.flag-ml {
+        &:after {
+          background-position: calc(-832px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mm' {
+      &.flag-mm {
+        &:after {
+          background-position: calc(-896px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mn' {
+      &.flag-mn {
+        &:after {
+          background-position: calc(-960px / $i) calc(-512px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mo' {
+      &.flag-mo {
+        &:after {
+          background-position: 0 calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mp' {
+      &.flag-mp {
+        &:after {
+          background-position: calc(-64px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mq' {
+      &.flag-mq {
+        &:after {
+          background-position: calc(-128px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mr' {
+      &.flag-mr {
+        &:after {
+          background-position: calc(-192px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ms' {
+      &.flag-ms {
+        &:after {
+          background-position: calc(-256px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mt' {
+      &.flag-mt {
+        &:after {
+          background-position: calc(-320px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mu' {
+      &.flag-mu {
+        &:after {
+          background-position: calc(-384px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mv' {
+      &.flag-mv {
+        &:after {
+          background-position: calc(-448px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mw' {
+      &.flag-mw {
+        &:after {
+          background-position: calc(-512px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mx' {
+      &.flag-mx {
+        &:after {
+          background-position: calc(-576px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'my' {
+      &.flag-my {
+        &:after {
+          background-position: calc(-640px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'mz' {
+      &.flag-mz {
+        &:after {
+          background-position: calc(-704px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'na' {
+      &.flag-na {
+        &:after {
+          background-position: calc(-768px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'nc' {
+      &.flag-nc {
+        &:after {
+          background-position: calc(-832px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ne' {
+      &.flag-ne {
+        &:after {
+          background-position: calc(-896px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'nf' {
+      &.flag-nf {
+        &:after {
+          background-position: calc(-960px / $i) calc(-576px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ng' {
+      &.flag-ng {
+        &:after {
+          background-position: 0 calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ni' {
+      &.flag-ni {
+        &:after {
+          background-position: calc(-64px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'nl' {
+      &.flag-nl {
+        &:after {
+          background-position: calc(-128px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'no' {
+      &.flag-no {
+        &:after {
+          background-position: calc(-192px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'np' {
+      &.flag-np {
+        &:after {
+          background-position: calc(-256px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'nr' {
+      &.flag-nr {
+        &:after {
+          background-position: calc(-320px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'nu' {
+      &.flag-nu {
+        &:after {
+          background-position: calc(-384px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'nz' {
+      &.flag-nz {
+        &:after {
+          background-position: calc(-448px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'om' {
+      &.flag-om {
+        &:after {
+          background-position: calc(-512px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pa' {
+      &.flag-pa {
+        &:after {
+          background-position: calc(-576px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pe' {
+      &.flag-pe {
+        &:after {
+          background-position: calc(-640px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pf' {
+      &.flag-pf {
+        &:after {
+          background-position: calc(-704px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pg' {
+      &.flag-pg {
+        &:after {
+          background-position: calc(-768px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ph' {
+      &.flag-ph {
+        &:after {
+          background-position: calc(-832px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pk' {
+      &.flag-pk {
+        &:after {
+          background-position: calc(-896px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pl' {
+      &.flag-pl {
+        &:after {
+          background-position: calc(-960px / $i) calc(-640px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pn' {
+      &.flag-pn {
+        &:after {
+          background-position: 0 calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pr' {
+      &.flag-pr {
+        &:after {
+          background-position: calc(-64px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ps' {
+      &.flag-ps {
+        &:after {
+          background-position: calc(-128px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pt' {
+      &.flag-pt {
+        &:after {
+          background-position: calc(-192px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'pw' {
+      &.flag-pw {
+        &:after {
+          background-position: calc(-256px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'py' {
+      &.flag-py {
+        &:after {
+          background-position: calc(-320px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'qa' {
+      &.flag-qa {
+        &:after {
+          background-position: calc(-384px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ro' {
+      &.flag-ro {
+        &:after {
+          background-position: calc(-448px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'rs' {
+      &.flag-rs {
+        &:after {
+          background-position: calc(-512px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ru' {
+      &.flag-ru {
+        &:after {
+          background-position: calc(-576px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'rw' {
+      &.flag-rw {
+        &:after {
+          background-position: calc(-640px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sa' {
+      &.flag-sa {
+        &:after {
+          background-position: calc(-704px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sb' {
+      &.flag-sb {
+        &:after {
+          background-position: calc(-768px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sc' {
+      &.flag-sc {
+        &:after {
+          background-position: calc(-832px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sd' {
+      &.flag-sd {
+        &:after {
+          background-position: calc(-896px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'se' {
+      &.flag-se {
+        &:after {
+          background-position: calc(-960px / $i) calc(-704px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sg' {
+      &.flag-sg {
+        &:after {
+          background-position: 0 calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sh' {
+      &.flag-sh {
+        &:after {
+          background-position: calc(-64px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'si' {
+      &.flag-si {
+        &:after {
+          background-position: calc(-128px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sk' {
+      &.flag-sk {
+        &:after {
+          background-position: calc(-192px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sl' {
+      &.flag-sl {
+        &:after {
+          background-position: calc(-256px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sm' {
+      &.flag-sm {
+        &:after {
+          background-position: calc(-320px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sn' {
+      &.flag-sn {
+        &:after {
+          background-position: calc(-384px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'so' {
+      &.flag-so {
+        &:after {
+          background-position: calc(-448px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sr' {
+      &.flag-sr {
+        &:after {
+          background-position: calc(-512px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ss' {
+      &.flag-ss {
+        &:after {
+          background-position: calc(-576px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'st' {
+      &.flag-st {
+        &:after {
+          background-position: calc(-640px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sv' {
+      &.flag-sv {
+        &:after {
+          background-position: calc(-704px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sy' {
+      &.flag-sy {
+        &:after {
+          background-position: calc(-768px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'sz' {
+      &.flag-sz {
+        &:after {
+          background-position: calc(-832px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tc' {
+      &.flag-tc {
+        &:after {
+          background-position: calc(-896px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'td' {
+      &.flag-td {
+        &:after {
+          background-position: calc(-960px / $i) calc(-768px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tf' {
+      &.flag-tf {
+        &:after {
+          background-position: 0 calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tg' {
+      &.flag-tg {
+        &:after {
+          background-position: calc(-64px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'th' {
+      &.flag-th {
+        &:after {
+          background-position: calc(-128px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tj' {
+      &.flag-tj {
+        &:after {
+          background-position: calc(-192px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tk' {
+      &.flag-tk {
+        &:after {
+          background-position: calc(-256px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tl' {
+      &.flag-tl {
+        &:after {
+          background-position: calc(-320px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tm' {
+      &.flag-tm {
+        &:after {
+          background-position: calc(-384px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tn' {
+      &.flag-tn {
+        &:after {
+          background-position: calc(-448px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'to' {
+      &.flag-to {
+        &:after {
+          background-position: calc(-512px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tr' {
+      &.flag-tr {
+        &:after {
+          background-position: calc(-576px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tt' {
+      &.flag-tt {
+        &:after {
+          background-position: calc(-640px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tv' {
+      &.flag-tv {
+        &:after {
+          background-position: calc(-704px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tw' {
+      &.flag-tw {
+        &:after {
+          background-position: calc(-768px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'tz' {
+      &.flag-tz {
+        &:after {
+          background-position: calc(-832px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ua' {
+      &.flag-ua {
+        &:after {
+          background-position: calc(-896px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ug' {
+      &.flag-ug {
+        &:after {
+          background-position: calc(-960px / $i) calc(-832px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'us' {
+      &.flag-us {
+        &:after {
+          background-position: 0 calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'uy' {
+      &.flag-uy {
+        &:after {
+          background-position: calc(-64px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'uz' {
+      &.flag-uz {
+        &:after {
+          background-position: calc(-128px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'va' {
+      &.flag-va {
+        &:after {
+          background-position: calc(-192px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'vc' {
+      &.flag-vc {
+        &:after {
+          background-position: calc(-256px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 've' {
+      &.flag-ve {
+        &:after {
+          background-position: calc(-320px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'vg' {
+      &.flag-vg {
+        &:after {
+          background-position: calc(-384px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'vi' {
+      &.flag-vi {
+        &:after {
+          background-position: calc(-448px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'vn' {
+      &.flag-vn {
+        &:after {
+          background-position: calc(-512px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'vu' {
+      &.flag-vu {
+        &:after {
+          background-position: calc(-576px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'wf' {
+      &.flag-wf {
+        &:after {
+          background-position: calc(-640px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ws' {
+      &.flag-ws {
+        &:after {
+          background-position: calc(-704px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'ye' {
+      &.flag-ye {
+        &:after {
+          background-position: calc(-768px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'yt' {
+      &.flag-yt {
+        &:after {
+          background-position: calc(-832px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'za' {
+      &.flag-za {
+        &:after {
+          background-position: calc(-896px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'zm' {
+      &.flag-zm {
+        &:after {
+          background-position: calc(-960px / $i) calc(-896px / $i);
+        }
+      }
+    }
+  }
+
+  @each $country in $availableCountries {
+    @if $country == 'zw' {
+      &.flag-zw {
+        &:after {
+          background-position: 0 calc(-960px / $i);
+        }
+      }
+    }
+  }
+}
