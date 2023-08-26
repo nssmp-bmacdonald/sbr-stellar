@@ -1,6 +1,6 @@
 {
   "name": "@nssmp-bmacdonald/sbr-components",
-  "version": "1.0.3",
+  "version": "0.0.1",
   "description": "Shared SBR react components",
   "main": "dist/index.js",
   "scripts": {
@@ -8,6 +8,10 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nssmp-bmacdonald/sbr-stellar.git"
   },
   "keywords": [],
   "author": "",

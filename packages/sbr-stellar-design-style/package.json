@@ -1,6 +1,6 @@
 {
   "name": "@nssmp-bmacdonald/sbr-stellar-design",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Shared front-end styes or SBR",
   "main": "index.js",
   "author": "NSSMP",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:nssmp-bmacdonald/sbr-shared-fe.git"
+    "url": "git@github.com:nssmp-bmacdonald/sbr-stellar.git"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
