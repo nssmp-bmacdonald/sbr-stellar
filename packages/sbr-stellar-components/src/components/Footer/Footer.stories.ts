@@ -7,7 +7,7 @@ import {
   RESOURCES_MENU,
   SOCIAL_MENU,
   SPORTSBOOK_MENU,
-} from "../../../constants";
+} from "../../constants";
 
 const meta: Meta = {
   title: "SBR/Footer",
@@ -23,13 +23,18 @@ type Story = StoryObj<typeof meta>;
 
 export const BettingOdds: Story = {
   args: {
-    label: "betting-odds",
-    link: "http://localhost:3000/betting-odds",
+    label: "Storybook Label - BettingOdds",
+    SPORTSBOOK_MENU: SPORTSBOOK_MENU,
+    RESOURCES_MENU: RESOURCES_MENU,
+    COMMUNITY_MENU: COMMUNITY_MENU,
+    COMPLIANCE_MENU: COMPLIANCE_MENU,
+    SOCIAL_MENU: SOCIAL_MENU,
   },
 };
 
 export const Betpoints: Story = {
   args: {
+    label: "Storybook Label - Betpoints",
     SPORTSBOOK_MENU: SPORTSBOOK_MENU,
     RESOURCES_MENU: RESOURCES_MENU,
     COMMUNITY_MENU: COMMUNITY_MENU,

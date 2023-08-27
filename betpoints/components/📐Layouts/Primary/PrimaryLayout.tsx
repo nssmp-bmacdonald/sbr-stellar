@@ -6,6 +6,13 @@ import {
   Header as StellarHeader,
   Footer as StellarFooter,
 } from '@nssmp-bmacdonald/sbr-stellar-components';
+import {
+  COMMUNITY_MENU,
+  COMPLIANCE_MENU,
+  RESOURCES_MENU,
+  SOCIAL_MENU,
+  SPORTSBOOK_MENU,
+} from '../../../lib/template/menu';
 
 export interface IPrimaryLayout {
   children: any;
@@ -24,11 +31,15 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children, region }) => {
       />
       <Header />
       <main>{children}</main>
-      <Footer region={region} />
       <StellarFooter
-        label="Footer Prop"
-        link="http://localhost:3000/betting-odds"
+        label="Betpoints Stellar Footer"
+        SPORTSBOOK_MENU={SPORTSBOOK_MENU}
+        SOCIAL_MENU={SOCIAL_MENU}
+        RESOURCES_MENU={RESOURCES_MENU}
+        COMPLIANCE_MENU={COMPLIANCE_MENU}
+        COMMUNITY_MENU={COMMUNITY_MENU}
       />
+      {/* <Footer region={region} /> */}
     </>
   );
 };

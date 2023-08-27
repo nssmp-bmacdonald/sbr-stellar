@@ -3,6 +3,18 @@ import { IRegion } from '../../../types/region';
 import Footer from '../../🔷Organisms/Footer/Footer';
 import Header from '../../🔷Organisms/Header/Header';
 
+import {
+  Header as StellarHeader,
+  Footer as StellarFooter,
+} from '@nssmp-bmacdonald/sbr-stellar-components';
+import {
+  COMMUNITY_MENU,
+  COMPLIANCE_MENU,
+  RESOURCES_MENU,
+  SOCIAL_MENU,
+  SPORTSBOOK_MENU,
+} from '../../../lib/template/menu';
+
 export interface IPrimaryLayout {
   children: any;
   region: IRegion;
@@ -16,7 +28,15 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children, region }) => {
       </Head>
       <Header />
       <main>{children}</main>
-      <Footer region={region} />
+      <StellarFooter
+        label="Core-Web Stellar Footer"
+        SPORTSBOOK_MENU={SPORTSBOOK_MENU}
+        SOCIAL_MENU={SOCIAL_MENU}
+        RESOURCES_MENU={RESOURCES_MENU}
+        COMPLIANCE_MENU={COMPLIANCE_MENU}
+        COMMUNITY_MENU={COMMUNITY_MENU}
+      />
+      {/* <Footer region={region} /> */}
     </>
   );
 };

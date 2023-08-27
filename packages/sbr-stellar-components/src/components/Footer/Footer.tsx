@@ -1,11 +1,12 @@
 import React from "react";
 import Nav from "../atoms/Nav";
+import { IMenu } from "../../constants";
 
 import "./Footer.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { IMenu } from "../../../constants";
 
 interface FooterProps {
+  label: string;
   SPORTSBOOK_MENU: IMenu[];
   RESOURCES_MENU: IMenu[];
   COMMUNITY_MENU: IMenu[];
@@ -14,6 +15,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
+  label,
   SPORTSBOOK_MENU,
   RESOURCES_MENU,
   COMMUNITY_MENU,
@@ -22,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <footer className={`bg-dark py-6`}>
-      <h2 className="text-white text-center p-3">Stellar SBR</h2>
+      <h2 className="text-white text-center p-3">{label}</h2>
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-3 mb-4 mb-lg-0 mb-xl-0 px-3">
@@ -67,7 +69,7 @@ const Footer: React.FC<FooterProps> = ({
 
         <div className="row justify-content-between">
           <div className="text-start col-6 mt-2 px-3">
-            <small>All Rights Reserved.</small>
+            <small className="text-white">All Rights Reserved.</small>
           </div>
           <Nav className="nav justify-content-end social-media col-6" menu={SOCIAL_MENU} />
         </div>

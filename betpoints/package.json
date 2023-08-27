@@ -1,6 +1,6 @@
 {
-  "name": "sbr-core-web",
-  "version": "0.1.0",
+  "name": "@nssmp-bmacdonald/betpoints",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev -p 3001",
@@ -17,7 +17,7 @@
     "npm": ">=8.6.0"
   },
   "dependencies": {
-    "@nssmp-bmacdonald/sbr-stellar-components": "^0.0.3",
+    "@nssmp-bmacdonald/sbr-stellar-components": "^0.0.8",
     "@tanstack/react-table": "^8.7.9",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",

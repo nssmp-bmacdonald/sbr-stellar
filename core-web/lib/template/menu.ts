@@ -41,6 +41,15 @@ export const MAIN_MENU: IMenu[] = [
 
 export const SPORTSBOOK_MENU: IMenu[] = [
   {
+    text: 'Betpoints',
+    href: 'http://localhost:3001/points',
+    className: 'nav-link px-0 py-1',
+    aaTracker: 'Footer - About Us',
+    target: '_self',
+    rel: '',
+    icon: '',
+  },
+  {
     text: 'About us',
     href: '#',
     className: 'nav-link px-0 py-1',

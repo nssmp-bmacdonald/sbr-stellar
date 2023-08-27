@@ -1,5 +1,5 @@
 import React from "react";
-import NavItem from "./NavItem";
+import NavItem from "../NavItem";
 import { IMenu } from "../../../constants";
 
 interface NavProp {

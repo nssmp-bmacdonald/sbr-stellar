@@ -20,8 +20,17 @@ export const MAIN_MENU: IMenu[] = [
     icon: '',
   },
   {
-    text: 'Contests',
-    href: process.env.CONTESTS_URL ?? 'https://contests.sportsbookreview.com',
+    text: 'Best Sportsbooks',
+    href: process.env.CONTESTS_URL ?? 'http://localhost:3002/best-sportsbooks',
+    className: 'nav-link',
+    aaTracker: '',
+    target: '_self',
+    rel: '',
+    icon: '',
+  },
+  {
+    text: 'Betting Sites',
+    href: process.env.CONTESTS_URL ?? 'http://localhost:3002/betting-sites',
     className: 'nav-link',
     aaTracker: '',
     target: '_self',
@@ -40,6 +49,24 @@ export const MAIN_MENU: IMenu[] = [
 ];
 
 export const SPORTSBOOK_MENU: IMenu[] = [
+  {
+    text: 'Best Sportsbooks',
+    href: 'http://localhost:3002/best-sportsbooks',
+    className: 'nav-link px-0 py-1',
+    aaTracker: 'Footer - News',
+    target: '_self',
+    rel: '',
+    icon: '',
+  },
+  {
+    text: 'Betting Sites',
+    href: 'http://localhost:3002/betting-sites',
+    className: 'nav-link px-0 py-1',
+    aaTracker: 'Footer - News',
+    target: '_self',
+    rel: '',
+    icon: '',
+  },
   {
     text: 'About us',
     href: '#',
@@ -195,7 +222,7 @@ export const COMPLIANCE_MENU: IMenu[] = [
     target: '_self',
     rel: '',
     icon: '',
-  },  
+  },
 ];
 
 export const UNATHENTICATED_LOGIN_MENU: IMenu = {

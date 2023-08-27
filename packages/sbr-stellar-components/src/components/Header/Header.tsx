@@ -10,7 +10,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ label, link }) => {
   return (
     <div className="sbr-header text-center pt-3">
-      SBR Header:
+      Stellar Header:
       <button className="btn btn-primary">
         <a className="text-danger" href={link}>
           {label}
