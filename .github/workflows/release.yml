@@ -7,6 +7,9 @@ on:
 jobs:
   sbr-stellar-components:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -29,6 +32,9 @@ jobs:
 
   sbr-stellar-design-style:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Get code
         uses: actions/checkout@v3
