@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev -p 3001",
+    "sbr": "npm i @nssmp-bmacdonald/sbr-stellar-components@latest",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -17,7 +18,7 @@
     "npm": ">=8.6.0"
   },
   "dependencies": {
-    "@nssmp-bmacdonald/sbr-stellar-components": "^0.0.9",
+    "@nssmp-bmacdonald/sbr-stellar-components": "^0.0.10",
     "@nssmp-bmacdonald/sbr-stellar-design": "^0.0.1",
     "@tanstack/react-table": "^8.7.9",
     "@types/node": "18.11.9",

@@ -13,16 +13,15 @@ const NavItem: React.FC<any> = ({
   action,
 }) => {
   return href !== "" ? (
-    <a href={href}>
-      <a
-        className={`${className}`}
-        data-aa-tracker={aaTracker}
-        target={target}
-        rel={rel}
-        onClick={action}
-      >
-        {icon !== "" ? <Icon icon={icon} text={text} /> : <>{text}</>}
-      </a>
+    <a
+      href={href}
+      className={`${className}`}
+      data-aa-tracker={aaTracker}
+      target={target}
+      rel={rel}
+      onClick={action}
+    >
+      {icon !== "" ? <Icon icon={icon} text={text} /> : <>{text}</>}
     </a>
   ) : (
     <>{icon !== "" ? <Icon icon={icon} text={text} /> : <>{text}</>}</>
