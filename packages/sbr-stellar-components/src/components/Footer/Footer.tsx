@@ -28,15 +28,17 @@ const Footer: React.FC<FooterProps> = ({
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-3 mb-4 mb-lg-0 mb-xl-0 px-3">
-            <a href="https://www.sportsbookreview.com/">
-              <a className="d-block mb-3" data-aatracker="Footer - SBR logo">
-                <img
-                  alt="Sportsbook Review logo"
-                  src="https://img.sportsbookreview.com/images/sbr-logo.svg"
-                  width={173}
-                  height={32}
-                />
-              </a>
+            <a
+              className="d-block mb-3"
+              data-aatracker="Footer - SBR logo"
+              href="https://www.sportsbookreview.com/"
+            >
+              <img
+                alt="Sportsbook Review logo"
+                src="https://img.sportsbookreview.com/images/sbr-logo.svg"
+                width={173}
+                height={32}
+              />
             </a>
             <p>
               <small>{new Date().getFullYear()} © Sportsbook Review.</small>

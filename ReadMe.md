@@ -5,7 +5,7 @@ Temporarily placing inside project
 
 ```sh
 @nssmp-bmacdonald:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=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
+//npm.pkg.github.com/:_authToken=${AUTH_TOKEN}
 ```
 
 ## Shared NPM package
