@@ -7,9 +7,6 @@ on:
 jobs:
   sbr-stellar-components:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -25,12 +22,11 @@ jobs:
           npm run build
           npm version patch
           npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  sbr-stellar-design:
+  sbr-stellar-design-style:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -41,8 +37,10 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
         run: |
-          cd packages/sbr-stellar-design
+          cd packages/sbr-stellar-design-style
           npm install
           npm run build
           npm version patch
           npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
