@@ -1,6 +1,7 @@
 name: Release
 
 on:
+  workflow_dispatch:
   release:
     types: [created]
 
@@ -21,14 +22,14 @@ jobs:
           registry-url: https://npm.pkg.github.com/
 
       - name: Build and publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd packages/sbr-stellar-components
           npm install
           npm run build
           npm version patch
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   sbr-stellar-design-style:
     runs-on: ubuntu-latest
@@ -46,11 +47,11 @@ jobs:
           registry-url: https://npm.pkg.github.com/
 
       - name: Build and publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd packages/sbr-stellar-design-style
           npm install
           npm run build
           npm version patch
           npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
