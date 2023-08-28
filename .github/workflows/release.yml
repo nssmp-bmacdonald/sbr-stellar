@@ -29,6 +29,8 @@ jobs:
           npm install
           npm run build
           npm version patch
+          echo "@nssmp-bmacdonald:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
           npm publish
 
   sbr-stellar-design-style:
