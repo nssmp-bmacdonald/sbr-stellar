@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
+
+      - name: Build and publish
         run: |
           cd packages/sbr-stellar-components
           npm install
@@ -36,6 +38,8 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
+
+      - name: Build and publish
         run: |
           cd packages/sbr-stellar-design-style
           npm install
