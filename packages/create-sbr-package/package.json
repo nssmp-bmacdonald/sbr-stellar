@@ -1,0 +1,33 @@
+{
+  "name": "@nssmp-bmacdonald/create-sbr-package",
+  "version": "0.0.6",
+  "description": "CLI tool for creating SBR packages",
+  "type": "module",
+  "bin": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && xcopy .\\src\\templates\\ .\\dist\\templates\\ /i /s /y",
+    "package": "npm run build && npm version patch && npm publish",
+    "start": "npm run build && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nssmp-bmacdonald/sbr-stellar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "figlet": "^1.6.0",
+    "gradient-string": "^2.0.2",
+    "inquirer": "^9.2.10"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.5.6",
+    "@types/gradient-string": "^1.1.2",
+    "@types/inquirer": "^9.0.3",
+    "typescript": "^5.2.2"
+  }
+}
